@@ -3,2692 +3,777 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BazarBd - Fashion & Essentials for Everyone</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Taka Income BD</title>
+    
+    <!-- libtl.com SDK for ads -->
+    <script src='//libtl.com/sdk.js' data-zone='10544414' data-sdk='show_10544414'></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* Header Styles */
-        header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: #22c55e;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo i {
-            font-size: 32px;
-        }
-
-        .admin-dot {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
-            background: #64748b;
-            color: white;
-            border-radius: 50%;
-            font-size: 12px;
-            font-weight: bold;
-            margin-left: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .admin-dot:hover {
-            background: #22c55e;
-            transform: scale(1.1);
-        }
-
-        nav.desktop-nav {
-            display: flex;
-            gap: 30px;
-        }
-
-        nav.desktop-nav a {
-            text-decoration: none;
-            color: #444;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav.desktop-nav a:hover {
-            color: #22c55e;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .search-box {
-            position: relative;
-        }
-
-        .search-box input {
-            padding: 8px 15px 8px 35px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            width: 200px;
-            outline: none;
-            transition: all 0.3s;
-        }
-
-        .search-box input:focus {
-            border-color: #22c55e;
-            width: 250px;
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #888;
-        }
-
-        .cart-icon {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #22c55e;
-            color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #444;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #22c55e;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid white;
-        }
-
-        .btn-primary:hover {
-            background: transparent;
-            color: white;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: #22c55e;
-        }
-
-        /* New Vendor & Reseller Buttons */
-        .btn-vendor {
-            background: #f59e0b;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid #f59e0b;
-        }
-
-        .btn-vendor:hover {
-            background: transparent;
-            color: #f59e0b;
-        }
-
-        .btn-reseller {
-            background: #8b5cf6;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid #8b5cf6;
-        }
-
-        .btn-reseller:hover {
-            background: transparent;
-            color: #8b5cf6;
-        }
-
-        /* Filters Section */
-        .filters {
-            background: white;
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .filters-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .gender-filters {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .gender-btn {
-            padding: 8px 20px;
-            border-radius: 20px;
-            border: none;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .gender-btn.active {
-            background: #22c55e;
-            color: white;
-        }
-
-        .gender-btn:not(.active) {
-            background: #f1f5f9;
-            color: #64748b;
-        }
-
-        .category-select {
-            padding: 8px 20px;
-            border-radius: 20px;
-            border: 1px solid #ddd;
-            background: white;
-            color: #444;
-            outline: none;
-            cursor: pointer;
-            min-width: 200px;
-        }
-
-        /* Products Grid - 4 Rows (12 items = 3 rows of 4 items) */
-        .products-section {
-            padding: 40px 0;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .product-image-container {
-            position: relative;
-            flex: 0 0 auto;
-        }
-
-        .product-image {
-            height: 200px;
-            width: 100%;
-            object-fit: cover;
-            background: #f8fafc;
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: #ef4444;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .gender-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            color: white;
-        }
-
-        .men-badge {
-            background: #3b82f6;
-        }
-
-        .women-badge {
-            background: #ec4899;
-        }
-
-        .kids-badge {
-            background: #f59e0b;
-        }
-
-        .unisex-badge {
-            background: #8b5cf6;
-        }
-
-        .vendor-badge {
-            background: #10b981;
-        }
-
-        .reseller-badge {
-            background: #8b5cf6;
-        }
-
-        .product-info {
-            padding: 15px;
-            flex: 1 0 auto;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #1e293b;
-            min-height: 40px;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-
-        .product-description {
-            color: #64748b;
-            font-size: 13px;
-            margin-bottom: 12px;
-            min-height: 40px;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-
-        .product-price {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .current-price {
-            font-size: 18px;
-            font-weight: 700;
-            color: #22c55e;
-        }
-
-        .original-price {
-            font-size: 14px;
-            color: #94a3b8;
-            text-decoration: line-through;
-        }
-
-        .product-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-        }
-
-        .add-to-cart-btn {
-            background: #22c55e;
-            color: white;
-            border: none;
-            padding: 6px 15px;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-size: 13px;
-        }
-
-        .add-to-cart-btn:hover {
-            background: #16a34a;
-        }
-
-        .wishlist-btn {
-            background: none;
-            border: none;
-            color: #94a3b8;
-            font-size: 18px;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .wishlist-btn.active {
-            color: #ef4444;
-        }
-
-        /* Vendor & Reseller Section */
-        .vendor-reseller-section {
-            padding: 60px 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 15px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #64748b;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            font-size: 18px;
-        }
-
-        .vendor-reseller-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .vendor-card, .reseller-card {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .vendor-card:hover, .reseller-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .vendor-card {
-            border-top: 5px solid #f59e0b;
-        }
-
-        .reseller-card {
-            border-top: 5px solid #8b5cf6;
-        }
-
-        .card-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            font-size: 32px;
-            color: white;
-        }
-
-        .vendor-icon {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-        }
-
-        .reseller-icon {
-            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-        }
-
-        .card-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #1e293b;
-        }
-
-        .card-description {
-            color: #64748b;
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-
-        .benefits-list {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .benefits-list li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #475569;
-        }
-
-        .benefits-list li i {
-            color: #22c55e;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .vendor-btn {
-            background: #f59e0b;
-            color: white;
-        }
-
-        .vendor-btn:hover {
-            background: #d97706;
-            color: white;
-        }
-
-        .reseller-btn {
-            background: #8b5cf6;
-            color: white;
-        }
-
-        .reseller-btn:hover {
-            background: #7c3aed;
-            color: white;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 60px 0;
-            background: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 30px 20px;
-            border-radius: 10px;
-            background: #f8fafc;
-            transition: transform 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: #22c55e;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-size: 24px;
-        }
-
-        .feature-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #1e293b;
-        }
-
-        .feature-description {
-            color: #64748b;
-            font-size: 14px;
-        }
-
-        /* Footer */
-        footer {
-            background: #0f172a;
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-column ul li a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-column ul li a:hover {
-            color: #22c55e;
-        }
-
-        .contact-info {
-            margin-top: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            color: #cbd5e1;
-        }
-
-        .contact-item i {
-            color: #22c55e;
-            width: 20px;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
-            font-size: 14px;
-        }
-
-        /* Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1001;
-            padding: 20px;
-        }
-
-        .modal {
-            background: white;
-            border-radius: 10px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .modal-header {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #1e293b;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #64748b;
-        }
-
-        .modal-body {
-            padding: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #475569;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border 0.3s;
-        }
-
-        .form-control:focus {
-            border-color: #22c55e;
-            outline: none;
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 30px;
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border-radius: 5px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            flex: 1;
-        }
-
-        .btn-success {
-            background: #22c55e;
-            color: white;
-        }
-
-        .btn-success:hover {
-            background: #16a34a;
-        }
-
-        .btn-secondary {
-            background: #e2e8f0;
-            color: #475569;
-        }
-
-        .btn-secondary:hover {
-            background: #cbd5e1;
-        }
-
-        /* Image Upload Preview */
-        .image-upload-container {
-            border: 2px dashed #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: border-color 0.3s;
-        }
-
-        .image-upload-container:hover {
-            border-color: #22c55e;
-        }
-
-        .image-preview {
-            max-width: 100%;
-            max-height: 200px;
-            margin: 10px auto;
-            display: block;
-            border-radius: 5px;
-        }
-
-        .upload-icon {
-            font-size: 48px;
-            color: #94a3b8;
-            margin-bottom: 10px;
-        }
-
-        .image-upload-text {
-            color: #64748b;
-            margin-bottom: 5px;
-        }
-
-        .image-upload-subtext {
-            color: #94a3b8;
-            font-size: 12px;
-        }
-
-        /* Product Detail */
-        .product-detail {
-            padding: 40px 0;
-        }
-
-        .product-detail-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-        }
-
-        .product-detail-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .product-detail-info h1 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #1e293b;
-        }
-
-        .product-category {
-            display: inline-block;
-            padding: 5px 15px;
-            background: #f1f5f9;
-            border-radius: 20px;
-            font-size: 14px;
-            color: #475569;
-            margin-bottom: 20px;
-        }
-
-        .product-detail-price {
-            font-size: 32px;
-            font-weight: 700;
-            color: #22c55e;
-            margin-bottom: 20px;
-        }
-
-        .product-description-full {
-            color: #64748b;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        .product-attributes {
-            margin-bottom: 30px;
-        }
-
-        .attribute {
-            margin-bottom: 15px;
-        }
-
-        .attribute-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: #475569;
-        }
-
-        .attribute-value {
-            color: #64748b;
-        }
-
-        /* Cart Page */
-        .cart-page {
-            padding: 40px 0;
-        }
-
-        .cart-items {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        .cart-item {
-            display: flex;
-            gap: 20px;
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-
-        .cart-item-image {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-
-        .cart-item-details {
-            flex: 1;
-        }
-
-        .cart-item-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: #1e293b;
-        }
-
-        .cart-item-price {
-            color: #22c55e;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .cart-item-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .quantity-control {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .quantity-btn {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 1px solid #ddd;
-            background: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .quantity {
-            min-width: 30px;
-            text-align: center;
-        }
-
-        .remove-btn {
-            color: #ef4444;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-        }
-
-        .cart-summary {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .summary-row.total {
-            border-bottom: none;
-            font-weight: 700;
-            font-size: 18px;
-            color: #1e293b;
-        }
-
-        .empty-cart {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .empty-cart i {
-            font-size: 60px;
-            color: #cbd5e1;
-            margin-bottom: 20px;
-        }
-
-        .empty-cart h3 {
-            margin-bottom: 15px;
-            color: #475569;
-        }
-
-        /* Checkout */
-        .checkout-page {
-            padding: 40px 0;
-        }
-
-        .checkout-form {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        .checkout-summary {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-        }
-
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            margin-top: 20px;
-            transition: background 0.3s;
-        }
-
-        .whatsapp-btn:hover {
-            background: #128C7E;
-        }
-
-        /* Success Message */
-        .success-message {
-            text-align: center;
-            padding: 40px;
-            background: white;
-            border-radius: 10px;
-            max-width: 500px;
-            margin: 40px auto;
-        }
-
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            background: #dcfce7;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: #22c55e;
-            font-size: 36px;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 1200px) {
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 900px) {
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .vendor-reseller-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-container {
-                flex-wrap: wrap;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            nav.desktop-nav {
-                display: none;
-            }
-            
-            .mobile-nav {
-                width: 100%;
-                margin-top: 15px;
-                display: none;
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .mobile-nav.active {
-                display: flex;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .hero-buttons a {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-            
-            .filters-container {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .gender-filters {
-                justify-content: center;
-            }
-            
-            .product-detail-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .search-box input {
-                width: 150px;
-            }
-            
-            .search-box input:focus {
-                width: 180px;
-            }
-
-            .vendor-card, .reseller-card {
-                padding: 30px 20px;
-            }
-
-            .section-title {
-                font-size: 30px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cart-item {
-                flex-direction: column;
-            }
-            
-            .cart-item-image {
-                width: 100%;
-                height: 200px;
-            }
-
-            .header-right {
-                gap: 10px;
-            }
-
-            .search-box input {
-                width: 120px;
-            }
-
-            .search-box input:focus {
-                width: 150px;
-            }
-
-            .vendor-reseller-grid {
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 28px;
-            }
-            
-            .hero p {
-                font-size: 16px;
-            }
-            
-            .btn-primary, .btn-secondary, .btn-vendor, .btn-reseller {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-
-            .logo {
-                font-size: 24px;
-            }
-
-            .logo i {
-                font-size: 28px;
-            }
-
-            .admin-dot {
-                width: 25px;
-                height: 25px;
-                font-size: 10px;
-            }
-
-            .section-title {
-                font-size: 26px;
-            }
-
-            .section-subtitle {
-                font-size: 16px;
-            }
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #121212; color: #ffffff; }
+        .dark-bg { background-color: #121212; }
+        .card-bg { background-color: #1e1e1e; }
+        .border-accent { border-color: #10b981; }
+        .text-accent { color: #10b981; }
+        .btn, .btn-accent, .btn-outline-accent { transition: all 0.2s ease-in-out; transform: scale(1); }
+        .btn:active, .btn-accent:active, .btn-outline-accent:active { transform: scale(0.95); }
+        .btn-accent { background-color: #10b981; color: #121212; font-weight: bold; }
+        .btn-accent:hover { background-color: #059669; }
+        .btn-outline-accent { border: 1px solid #10b981; color: #10b981; }
+        .btn-outline-accent:hover { background-color: #10b981; color: #121212; }
+        .input-field { background-color: #2c2c2c; border: 1px solid #444; }
+        .main-page { display: none; }
+        .main-page.active { display: flex; animation: fadeIn 0.5s ease-in-out; }
+        .sub-page { display: none; }
+        .sub-page.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        .bottom-nav a.active { color: #10b981; }
+        .notification-dot {
+            position: absolute; top: -2px; right: -2px; width: 10px; height: 10px;
+            background-color: #ef4444; border-radius: 50%; border: 2px solid #121212; display: none;
+        }
+        .modal-scroll::-webkit-scrollbar { width: 4px; }
+        .modal-scroll::-webkit-scrollbar-thumb { background-color: #ccc; border-radius: 4px; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes popUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .popup-anim { animation: popUp 0.3s ease-out; }
     </style>
 </head>
-<body>
-    <div id="root"></div>
+<body class="max-w-md mx-auto">
 
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
+    <div id="loader" class="hidden fixed inset-0 dark-bg bg-opacity-75 flex items-center justify-center z-50">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-accent"></div>
+    </div>
 
-        const App = () => {
-            // Initial State
-            const [cartItems, setCartItems] = useState([]);
-            const [wishlist, setWishlist] = useState([]);
-            const [products, setProducts] = useState([
-                {
-                    id: 1,
-                    name: "Elegant Kurta-Panjabi",
-                    price: 3499,
-                    originalPrice: 4299,
-                    image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=400&fit=crop",
-                    category: "traditional",
-                    gender: "men",
-                    description: "Premium cotton kurta-panjabi with traditional embroidery.",
-                    details: "Material: 100% Cotton\nSize: M, L, XL, XXL\nColor: Cream with Gold Embroidery"
-                },
-                {
-                    id: 2,
-                    name: "Beautiful Red Sari",
-                    price: 4599,
-                    originalPrice: 5499,
-                    image: "https://images.unsplash.com/photo-1585487000160-6eb9ce6b5aae?w=400&h=400&fit=crop",
-                    category: "traditional",
-                    gender: "women",
-                    description: "Stunning red sari with golden zari work.",
-                    details: "Material: Banarasi Silk\nSize: 6.5 meters\nColor: Red with Gold"
-                },
-                {
-                    id: 3,
-                    name: "Formal White Shirt",
-                    price: 1899,
-                    originalPrice: 2399,
-                    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop",
-                    category: "western",
-                    gender: "men",
-                    description: "Premium formal shirt for office and events.",
-                    details: "Material: 100% Cotton\nSize: S, M, L, XL\nColor: White"
-                },
-                {
-                    id: 4,
-                    name: "Floral Summer Dress",
-                    price: 2899,
-                    originalPrice: 3599,
-                    image: "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?w=400&h=400&fit=crop",
-                    category: "western",
-                    gender: "women",
-                    description: "Beautiful floral print summer dress.",
-                    details: "Material: Cotton Blend\nSize: S, M, L\nColor: Yellow Floral"
-                },
-                {
-                    id: 5,
-                    name: "Baby Romper Set",
-                    price: 1299,
-                    originalPrice: 1599,
-                    image: "https://images.unsplash.com/photo-1518011467308-c6b6c56d7f36?w=400&h=400&fit=crop",
-                    category: "baby",
-                    gender: "kids",
-                    description: "Soft and comfortable baby romper set.",
-                    details: "Material: 100% Cotton\nAge: 0-12 months\nColor: Light Blue"
-                },
-                {
-                    id: 6,
-                    name: "Kids T-Shirt & Shorts",
-                    price: 1499,
-                    originalPrice: 1899,
-                    image: "https://images.unsplash.com/photo-1519241047957-be31d7379a5d?w=400&h=400&fit=crop",
-                    category: "kids",
-                    gender: "kids",
-                    description: "Colorful t-shirt and shorts set for kids.",
-                    details: "Material: Cotton\nAge: 2-5 years\nColor: Multi-color"
-                },
-                {
-                    id: 7,
-                    name: "Winter Jacket",
-                    price: 3899,
-                    originalPrice: 4599,
-                    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop",
-                    category: "seasonal",
-                    gender: "men",
-                    description: "Warm winter jacket for cold weather.",
-                    details: "Material: Polyester\nSize: M, L, XL, XXL\nColor: Black"
-                },
-                {
-                    id: 8,
-                    name: "Rain Coat",
-                    price: 2199,
-                    originalPrice: 2799,
-                    image: "https://images.unsplash.com/photo-1525815730443-45f1045116bb?w=400&h=400&fit=crop",
-                    category: "seasonal",
-                    gender: "women",
-                    description: "Waterproof rain coat for monsoon.",
-                    details: "Material: PVC\nSize: S, M, L\nColor: Yellow"
-                },
-                {
-                    id: 9,
-                    name: "Wedding Sherwani",
-                    price: 8999,
-                    originalPrice: 10999,
-                    image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=400&fit=crop",
-                    category: "special",
-                    gender: "men",
-                    description: "Luxurious wedding sherwani with embroidery.",
-                    details: "Material: Silk\nSize: M, L, XL\nColor: Maroon with Gold"
-                },
-                {
-                    id: 10,
-                    name: "Bridal Lehenga",
-                    price: 12999,
-                    originalPrice: 15999,
-                    image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400&h=400&fit=crop",
-                    category: "special",
-                    gender: "women",
-                    description: "Exquisite bridal lehenga for weddings.",
-                    details: "Material: Silk with Zari\nSize: S, M, L\nColor: Red with Gold"
-                },
-                {
-                    id: 11,
-                    name: "Sports T-Shirt",
-                    price: 1599,
-                    originalPrice: 1999,
-                    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
-                    category: "sports",
-                    gender: "men",
-                    description: "Breathable sports t-shirt for workouts.",
-                    details: "Material: Polyester\nSize: S, M, L, XL\nColor: Navy Blue"
-                },
-                {
-                    id: 12,
-                    name: "Yoga Pants",
-                    price: 1899,
-                    originalPrice: 2299,
-                    image: "https://images.unsplash.com/photo-1587563871167-1ee9c731c322?w=400&h=400&fit=crop",
-                    category: "sports",
-                    gender: "women",
-                    description: "Stretchy yoga pants for exercise.",
-                    details: "Material: Nylon Spandex\nSize: S, M, L\nColor: Black"
-                },
-                {
-                    id: 13,
-                    name: "Leather Formal Shoes",
-                    price: 2499,
-                    originalPrice: 2999,
-                    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop",
-                    category: "footwear",
-                    gender: "men",
-                    description: "Premium leather formal shoes for office wear.",
-                    details: "Material: Genuine Leather\nSize: 7-11\nColor: Black"
-                },
-                {
-                    id: 14,
-                    name: "Ladies Sandals",
-                    price: 1499,
-                    originalPrice: 1899,
-                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop",
-                    category: "footwear",
-                    gender: "women",
-                    description: "Comfortable sandals for women.",
-                    details: "Material: Synthetic Leather\nSize: 5-8\nColor: Beige"
-                },
-                {
-                    id: 15,
-                    name: "Travel Backpack",
-                    price: 1899,
-                    originalPrice: 2299,
-                    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop",
-                    category: "bags",
-                    gender: "unisex",
-                    description: "Waterproof backpack for travel and college.",
-                    details: "Material: Nylon\nCapacity: 25L\nColor: Navy Blue"
-                },
-                {
-                    id: 16,
-                    name: "Leather Handbag",
-                    price: 3499,
-                    originalPrice: 4199,
-                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=400&fit=crop",
-                    category: "bags",
-                    gender: "women",
-                    description: "Elegant leather handbag for women.",
-                    details: "Material: Genuine Leather\nColor: Brown\nCompartments: 3"
-                },
-                {
-                    id: 17,
-                    name: "Gold Plated Necklace",
-                    price: 1299,
-                    originalPrice: 1599,
-                    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&h=400&fit=crop",
-                    category: "jewelry",
-                    gender: "women",
-                    description: "Beautiful gold plated necklace set.",
-                    details: "Material: Gold Plated\nType: Necklace with Earrings\nColor: Gold"
-                },
-                {
-                    id: 18,
-                    name: "Bracelet Set",
-                    price: 899,
-                    originalPrice: 1199,
-                    image: "https://images.unsplash.com/photo-1605100940297-d9e4a0d39a4a?w=400&h=400&fit=crop",
-                    category: "jewelry",
-                    gender: "women",
-                    description: "Stylish bracelet set for women.",
-                    details: "Material: Alloy\nSet of: 3 Bracelets\nColor: Gold and Silver"
-                },
-                {
-                    id: 19,
-                    name: "Analog Watch",
-                    price: 1999,
-                    originalPrice: 2499,
-                    image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400&h=400&fit=crop",
-                    category: "watches",
-                    gender: "men",
-                    description: "Classic analog watch for men.",
-                    details: "Material: Stainless Steel\nMovement: Quartz\nWater Resistant: 50m"
-                },
-                {
-                    id: 20,
-                    name: "Smart Watch",
-                    price: 4599,
-                    originalPrice: 5499,
-                    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop",
-                    category: "watches",
-                    gender: "unisex",
-                    description: "Smart watch with fitness tracking.",
-                    details: "Features: Heart Rate, Steps\nBattery: 7 days\nConnectivity: Bluetooth"
-                },
-                {
-                    id: 21,
-                    name: "Lipstick Set",
-                    price: 999,
-                    originalPrice: 1299,
-                    image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop",
-                    category: "cosmetics",
-                    gender: "women",
-                    description: "Set of 6 long lasting lipsticks.",
-                    details: "Set of: 6 shades\nType: Matte Finish\nWeight: 3.5g each"
-                },
-                {
-                    id: 22,
-                    name: "Face Cream",
-                    price: 799,
-                    originalPrice: 999,
-                    image: "https://images.unsplash.com/photo-1556228578-9c360e1d8f43?w=400&h=400&fit=crop",
-                    category: "cosmetics",
-                    gender: "unisex",
-                    description: "Moisturizing face cream for all skin types.",
-                    details: "Volume: 50ml\nSkin Type: All\nSPF: 30"
-                },
-                {
-                    id: 23,
-                    name: "Bed Sheet Set",
-                    price: 1899,
-                    originalPrice: 2299,
-                    image: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=400&fit=crop",
-                    category: "home",
-                    gender: "unisex",
-                    description: "Cotton bed sheet set for bedroom.",
-                    details: "Material: 100% Cotton\nSet Includes: 1 Bedsheet, 2 Pillow Covers\nSize: Double"
-                },
-                {
-                    id: 24,
-                    name: "Kitchen Utensil Set",
-                    price: 1499,
-                    originalPrice: 1899,
-                    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop",
-                    category: "home",
-                    gender: "unisex",
-                    description: "Complete kitchen utensil set.",
-                    details: "Set of: 15 pieces\nMaterial: Stainless Steel\nIncludes: Spoons, Ladles, Turner"
-                }
-            ]);
+    <div id="welcome-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-[60] hidden p-4">
+        <div class="bg-white text-gray-900 rounded-2xl w-full max-w-sm p-6 relative popup-anim shadow-2xl">
+            <button onclick="closeWelcomeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="text-center mb-4">
+                <h2 class="text-2xl font-bold text-black flex items-center justify-center gap-2">স্বাগতম! 🔥</h2>
+            </div>
+            <div class="space-y-4 text-sm font-medium leading-relaxed text-center">
+                <p>আসসালামু আলাইকুম, সততার সাথে পেমেন্ট করছি। নিয়ম মেনে কাজ করলে ১০০% পেমেন্ট পাবেন ইনশাআল্লাহ 🔥</p>
+                <div class="space-y-2 text-left bg-gray-50 p-3 rounded-lg border border-gray-200">
+                    <p class="flex items-center gap-2"><span class="text-yellow-500">⚡</span> ওয়েবসাইট ভিজিট: ১০০ কয়েন</p>
+                    <p class="flex items-center gap-2"><span class="text-green-600">💸</span> প্রতি রেফারে: ২০০ কয়েন</p>
+                    <p class="flex items-center gap-2"><span class="text-yellow-600">💰</span> প্রতি বিজ্ঞাপনে: ৫০ কয়েন</p>
+                </div>
+                <div class="border-t border-gray-200 pt-3">
+                    <p class="flex items-center justify-center gap-1 font-bold text-gray-800"><span class="text-red-600 text-lg">📌</span> ১০০% পেমেন্ট গ্যারান্টি</p>
+                </div>
+            </div>
+            <button onclick="closeWelcomeModal()" class="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors text-lg">বুঝেছি</button>
+        </div>
+    </div>
+
+    <div id="auth-section" class="min-h-screen p-6 flex-col justify-center main-page">
+        <h1 class="text-4xl font-bold text-center mb-2 text-accent">Taka Income BD</h1>
+        <p class="text-center text-gray-400 mb-8">Login or Signup to continue</p>
+        <div id="auth-container">
+            <div id="login-view">
+                <input id="login-email" type="email" placeholder="Email" class="w-full p-3 rounded-lg input-field mb-4">
+                <input id="login-password" type="password" placeholder="Password" class="w-full p-3 rounded-lg input-field mb-4">
+                <button id="login-btn" class="w-full p-3 rounded-lg btn-accent mb-4">Login</button>
+                <p class="text-center text-gray-400">Don't have an account? <a href="#" id="show-signup" class="font-semibold text-accent">Sign Up</a></p>
+            </div>
+            <div id="signup-view" class="hidden">
+                 <input id="signup-name" type="text" placeholder="Full Name" class="w-full p-3 rounded-lg input-field mb-4">
+                <input id="signup-email" type="email" placeholder="Email" class="w-full p-3 rounded-lg input-field mb-4">
+                <input id="signup-password" type="password" placeholder="Password" class="w-full p-3 rounded-lg input-field mb-4">
+                <button id="signup-btn" class="w-full p-3 rounded-lg btn-accent mb-4">Sign Up</button>
+                <p class="text-center text-gray-400">Already have an account? <a href="#" id="show-login" class="font-semibold text-accent">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="app-container" class="min-h-screen flex-col main-page">
+        <header class="flex items-center justify-between p-4 sticky top-0 bg-opacity-80 backdrop-blur-md z-10 dark-bg">
+            <h1 class="text-xl font-bold text-accent">Taka Income BD</h1>
+            <div class="flex items-center space-x-4">
+                <div id="notification-bell" class="relative cursor-pointer">
+                    <i data-lucide="bell" class="w-6 h-6"></i>
+                    <div id="notification-dot" class="notification-dot"></div>
+                </div>
+                <i data-lucide="user" class="w-6 h-6 cursor-pointer" onclick="navigateTo('profile-page')"></i>
+            </div>
+        </header>
+
+        <main class="flex-grow">
+            <div id="home-page" class="p-4 space-y-6 sub-page">
+                <div class="card-bg p-4 rounded-lg flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-400 text-sm">Your Balance</p>
+                        <p class="text-3xl font-bold"><span id="coin-balance">0</span> Coins</p>
+                    </div>
+                    <button id="home-withdraw-btn" class="bg-white text-black font-semibold px-6 py-2 rounded-lg">Withdraw</button>
+                </div>
+                
+                <section>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h2 class="text-lg font-semibold">Daily Tasks</h2>
+                            <p class="text-sm text-gray-400 mb-4">Complete tasks to earn money.</p>
+                        </div>
+                        <p class="text-sm text-gray-400">Done: <span id="ads-left-count">0</span>/<span id="max-tasks">...</span></p>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <h3 class="text-xs font-bold text-gray-500 uppercase mt-2">Website Visits (30s Timer)</h3>
+                        
+                        <div class="card-bg p-3 rounded-lg flex items-center justify-between">
+                            <div class="flex items-center space-x-3"><span class="text-3xl">🌐</span><div><h3 class="font-semibold">Website Visit 1</h3><p class="text-xs text-gray-400">Reward: 50 Coins</p></div></div>
+                            <button id="task-btn-1" class="bg-green-600 text-white font-bold px-6 py-2 rounded-lg text-sm btn" onclick="startWebTask(1)">Visit</button>
+                        </div>
+
+                        <div class="card-bg p-3 rounded-lg flex items-center justify-between">
+                            <div class="flex items-center space-x-3"><span class="text-3xl">🌐</span><div><h3 class="font-semibold">Website Visit 2</h3><p class="text-xs text-gray-400">Reward: 50 Coins</p></div></div>
+                            <button id="task-btn-2" class="bg-green-600 text-white font-bold px-6 py-2 rounded-lg text-sm btn" onclick="startWebTask(2)">Visit</button>
+                        </div>
+
+                        <div class="card-bg p-3 rounded-lg flex items-center justify-between">
+                            <div class="flex items-center space-x-3"><span class="text-3xl">🌐</span><div><h3 class="font-semibold">Website Visit 3</h3><p class="text-xs text-gray-400">Reward: 50 Coins</p></div></div>
+                            <button id="task-btn-3" class="bg-green-600 text-white font-bold px-6 py-2 rounded-lg text-sm btn" onclick="startWebTask(3)">Visit</button>
+                        </div>
+
+                        <h3 class="text-xs font-bold text-gray-500 uppercase mt-4">Ad Rewards</h3>
+                        
+                        <!-- Watch Short Ad Button with libtl.com -->
+                        <div class="bg-orange-500 p-3 rounded-lg flex items-center justify-between text-black">
+                            <div class="flex items-center space-x-3"><span class="text-3xl">🤩</span><div><h3 class="font-bold">Watch Short Ad</h3></div></div>
+                            <button class="bg-white text-orange-500 font-bold px-6 py-2 rounded-lg text-sm btn" onclick="showLibtlAd('interstitial')">Claim</button>
+                        </div>
+                        
+                        <!-- Click for Reward Button with libtl.com -->
+                        <div class="card-bg p-3 rounded-lg flex items-center justify-between">
+                            <div class="flex items-center space-x-3"><span class="text-3xl">😎</span><div><h3 class="font-semibold">Click for Reward</h3></div></div>
+                            <button class="bg-white text-black font-bold px-6 py-2 rounded-lg text-sm btn" onclick="showLibtlAd('popup')">Claim</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="wallet-page" class="p-4 space-y-6 sub-page">
+                <h2 class="text-xl font-bold text-center">My Wallet</h2>
+                <div class="card-bg p-4 rounded-lg">
+                    <h3 class="font-semibold mb-3">Withdraw Earnings</h3>
+                    <p class="text-sm text-gray-400 mb-1">Current Balance: <span class="font-bold text-accent"><span id="wallet-coin-balance">0</span> Coins</span></p>
+                    <p class="text-sm text-gray-400 mb-2">Minimum Withdrawal: <span id="min-withdrawal-info">...</span> Coins</p>
+                    <p class="text-sm text-gray-400 mb-4 font-semibold" id="coin-value-info">...</p>
+                    <input id="withdraw-amount" type="number" placeholder="Enter coin amount" class="w-full p-3 rounded-lg input-field mb-3">
+                    <select id="withdraw-method" class="w-full p-3 rounded-lg input-field mb-3"></select>
+                    <div id="payment-details-container"></div>
+                    <button id="withdraw-btn" class="w-full p-3 rounded-lg btn-accent mt-3">Request Withdrawal</button>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-3">Withdrawal History</h3>
+                    <div id="withdrawal-history-list" class="space-y-3"></div>
+                </div>
+            </div>
+
+            <div id="refer-page" class="p-4 space-y-6 sub-page">
+                 <h2 class="text-xl font-bold text-center">Refer & Earn</h2>
+                 <div class="card-bg p-6 rounded-lg text-center">
+                     <p class="text-gray-400 mb-2">Your Referral Code</p>
+                     <div class="bg-gray-800 p-3 rounded-lg flex items-center justify-center mb-4">
+                         <span id="referral-code" class="text-2xl font-bold tracking-widest">LOADING...</span>
+                         <button id="copy-code-btn" class="ml-4"><i data-lucide="copy" class="w-6 h-6 text-gray-400"></i></button>
+                     </div>
+                 </div>
+                 <button id="share-btn" class="w-full p-3 rounded-lg btn-accent">Share Your Code</button>
+                 <div class="card-bg p-4 rounded-lg mt-6">
+                    <h3 class="font-semibold mb-3 text-center">Have a Referral Code?</h3>
+                    <input id="enter-referral-code" type="text" placeholder="Enter code here" class="w-full p-3 rounded-lg input-field mb-3">
+                    <button id="apply-referral-btn" class="w-full p-3 rounded-lg btn-outline-accent">Apply Code</button>
+                 </div>
+            </div>
+
+            <div id="profile-page" class="p-4 space-y-6 sub-page">
+                <h2 class="text-xl font-bold text-center mb-4">Profile</h2>
+                <div class="flex flex-col items-center">
+                    <img src="https://placehold.co/100x100/1e1e1e/10b981?text=U" class="rounded-full mb-2 shadow-lg border-2 border-accent">
+                    <h2 id="profile-name" class="text-xl font-bold">User Name</h2>
+                    <p id="profile-email" class="text-gray-400 text-sm">user@email.com</p>
+                </div>
+
+                <div class="space-y-3 pt-2">
+                    <p class="text-xs text-gray-500 uppercase font-bold ml-1">Community & Support</p>
+                    
+                    <a id="link-telegram-btn" href="#" target="_blank" class="card-bg p-4 rounded-xl flex items-center justify-between hover:bg-[#252525] transition-colors border border-transparent hover:border-gray-700">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-blue-500/10 rounded-lg text-blue-400"><i data-lucide="send" class="w-5 h-5"></i></div>
+                            <span class="font-medium">Join Our Official Telegram</span>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-gray-600"></i>
+                    </a>
+
+                    <a id="link-facebook-btn" href="#" target="_blank" class="card-bg p-4 rounded-xl flex items-center justify-between hover:bg-[#252525] transition-colors border border-transparent hover:border-gray-700">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-blue-700/10 rounded-lg text-blue-600"><i data-lucide="facebook" class="w-5 h-5"></i></div>
+                            <span class="font-medium">Join Our Official Facebook</span>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-gray-600"></i>
+                    </a>
+
+                    <a id="link-admin-btn" href="#" target="_blank" class="card-bg p-4 rounded-xl flex items-center justify-between hover:bg-[#252525] transition-colors border border-transparent hover:border-gray-700">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-green-500/10 rounded-lg text-green-400"><i data-lucide="message-circle" class="w-5 h-5"></i></div>
+                            <span class="font-medium">Contact Admin</span>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-gray-600"></i>
+                    </a>
+                </div>
+
+                <button id="logout-btn" class="w-full mt-4 p-3 rounded-lg bg-red-600/20 text-red-500 border border-red-600/50 font-bold hover:bg-red-600 hover:text-white transition-all">Logout</button>
+            </div>
             
-            const categories = [
-                { id: 'all', name: 'All Products' },
-                { id: 'traditional', name: 'Traditional Wear' },
-                { id: 'western', name: 'Western Wear' },
-                { id: 'baby', name: 'Baby Products' },
-                { id: 'kids', name: 'Kids Wear' },
-                { id: 'seasonal', name: 'Seasonal Wear' },
-                { id: 'special', name: 'Special Occasion' },
-                { id: 'sports', name: 'Sports Wear' },
-                { id: 'inner', name: 'Innerwear' },
-                { id: 'accessories', name: 'Accessories' },
-                { id: 'footwear', name: 'Footwear' },
-                { id: 'bags', name: 'Bags & Luggage' },
-                { id: 'jewelry', name: 'Jewelry' },
-                { id: 'watches', name: 'Watches' },
-                { id: 'cosmetics', name: 'Cosmetics' },
-                { id: 'home', name: 'Home Essentials' }
-            ];
-            
-            const [currentView, setCurrentView] = useState('home');
-            const [selectedProduct, setSelectedProduct] = useState(null);
-            const [searchQuery, setSearchQuery] = useState('');
-            const [selectedCategory, setSelectedCategory] = useState('all');
-            const [selectedGender, setSelectedGender] = useState('all');
-            const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-            const [showAdminLogin, setShowAdminLogin] = useState(false);
-            const [isAdmin, setIsAdmin] = useState(false);
-            const [adminPassword, setAdminPassword] = useState('');
-            const [showAddProduct, setShowAddProduct] = useState(false);
-            const [editingProduct, setEditingProduct] = useState(null);
-            const [newProduct, setNewProduct] = useState({
-                name: '',
-                price: '',
-                originalPrice: '',
-                image: '',
-                category: 'traditional',
-                gender: 'men',
-                description: '',
-                details: ''
-            });
-            const [imagePreview, setImagePreview] = useState('');
-            const [checkoutInfo, setCheckoutInfo] = useState({
-                name: '',
-                phone: '',
-                address: '',
-                city: '',
-                delivery: 'inside'
-            });
-            const [orderSuccess, setOrderSuccess] = useState(false);
-            const fileInputRef = useRef(null);
+            <div id="notifications-page" class="p-4 space-y-4 sub-page">
+                <h2 class="text-xl font-bold text-center">Notifications</h2>
+                <div id="notifications-list" class="space-y-3"></div>
+            </div>
+        </main>
 
-            // Check for admin password in search box
-            useEffect(() => {
-                if (searchQuery.trim() === '9192' && !isAdmin) {
-                    setShowAdminLogin(true);
-                    setSearchQuery('');
-                }
-            }, [searchQuery, isAdmin]);
+        <nav class="bottom-nav sticky bottom-0 grid grid-cols-4 items-center text-center py-2 card-bg">
+            <a href="#" class="nav-link" data-page="home-page"><i data-lucide="home" class="mx-auto w-6 h-6"></i><span class="text-xs">Home</span></a>
+            <a href="#" class="nav-link" data-page="wallet-page"><i data-lucide="wallet" class="mx-auto w-6 h-6"></i><span class="text-xs">Wallet</span></a>
+            <a href="#" class="nav-link" data-page="refer-page"><i data-lucide="users" class="mx-auto w-6 h-6"></i><span class="text-xs">Refer & Earn</span></a>
+            <a href="#" class="nav-link" data-page="profile-page"><i data-lucide="user" class="mx-auto w-6 h-6"></i><span class="text-xs">Profile</span></a>
+        </nav>
+    </div>
+    
+    <div id="custom-alert" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-gray-800 rounded-lg p-6 w-full max-w-sm text-center">
+            <p id="alert-message" class="mb-4"></p>
+            <button id="alert-ok-btn" class="btn-accent px-6 py-2 rounded-lg">OK</button>
+        </div>
+    </div>
 
-            // Filter products
-            const filteredProducts = products.filter(product => {
-                const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                                    product.description.toLowerCase().includes(searchQuery.toLowerCase());
-                const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
-                const matchesGender = selectedGender === 'all' || product.gender === selectedGender;
-                return matchesSearch && matchesCategory && matchesGender;
-            });
+    <script type="module">
+       const firebaseConfig = {
+  apiKey: "AIzaSyDM9J2Q9jjvsLYRAte9GHt2zEFrn718r1Y",
+  authDomain: "mega-earn-1.firebaseapp.com",
+  databaseURL: "https://mega-earn-1-default-rtdb.firebaseio.com",
+  projectId: "mega-earn-1",
+  storageBucket: "mega-earn-1.firebasestorage.app",
+  messagingSenderId: "220880314816",
+  appId: "1:220880314816:web:658c17765555e875f52825",
+  measurementId: "G-79C37JTZWK"
+};
+ 
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, addDoc, serverTimestamp, query, where, getDocs, orderBy, limit } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-            // Cart functions
-            const addToCart = (product) => {
-                const existingItem = cartItems.find(item => item.id === product.id);
-                if (existingItem) {
-                    setCartItems(cartItems.map(item =>
-                        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-                    ));
-                } else {
-                    setCartItems([...cartItems, { ...product, quantity: 1 }]);
-                }
-            };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
 
-            const removeFromCart = (productId) => {
-                setCartItems(cartItems.filter(item => item.id !== productId));
-            };
+        let currentUser = null;
+        let userData = null;
+        let appConfig = {};
 
-            const updateQuantity = (productId, newQuantity) => {
-                if (newQuantity <= 0) {
-                    removeFromCart(productId);
-                } else {
-                    setCartItems(cartItems.map(item =>
-                        item.id === productId ? { ...item, quantity: newQuantity } : item
-                    ));
-                }
-            };
+        const loader = document.getElementById('loader');
+        const coinBalanceEl = document.getElementById('coin-balance');
+        const walletCoinBalanceEl = document.getElementById('wallet-coin-balance');
+        const profileNameEl = document.getElementById('profile-name');
+        const profileEmailEl = document.getElementById('profile-email');
+        const referralCodeEl = document.getElementById('referral-code');
+        const minWithdrawalInfoEl = document.getElementById('min-withdrawal-info');
+        const coinValueInfoEl = document.getElementById('coin-value-info');
+        const withdrawMethodSelect = document.getElementById('withdraw-method');
+        const notificationDot = document.getElementById('notification-dot');
+        const adsLeftCountEl = document.getElementById('ads-left-count');
+        const paymentDetailsContainer = document.getElementById('payment-details-container');
 
-            const getCartTotal = () => {
-                return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-            };
-
-            const getDeliveryCharge = () => {
-                return checkoutInfo.delivery === 'inside' ? 100 : 150;
-            };
-
-            const getGrandTotal = () => {
-                return getCartTotal() + getDeliveryCharge();
-            };
-
-            // Wishlist functions
-            const toggleWishlist = (productId) => {
-                if (wishlist.includes(productId)) {
-                    setWishlist(wishlist.filter(id => id !== productId));
-                } else {
-                    setWishlist([...wishlist, productId]);
-                }
-            };
-
-            // Image upload functions
-            const handleImageUpload = (event) => {
-                const file = event.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onloadend = () => {
-                        setImagePreview(reader.result);
-                        setNewProduct({...newProduct, image: reader.result});
-                    };
-                    reader.readAsDataURL(file);
-                }
-            };
-
-            const triggerFileInput = () => {
-                fileInputRef.current.click();
-            };
-
-            // Admin functions
-            const handleAdminLogin = () => {
-                if (adminPassword === '9192') {
-                    setIsAdmin(true);
-                    setShowAdminLogin(false);
-                    setAdminPassword('');
-                } else {
-                    alert('Incorrect password!');
-                }
-            };
-
-            const handleAddProduct = () => {
-                if (!newProduct.name || !newProduct.price || !newProduct.image) {
-                    alert('Please fill all required fields');
-                    return;
-                }
-
-                const productToAdd = {
-                    ...newProduct,
-                    id: Date.now(),
-                    price: parseInt(newProduct.price),
-                    originalPrice: newProduct.originalPrice ? parseInt(newProduct.originalPrice) : parseInt(newProduct.price)
-                };
-
-                setProducts([...products, productToAdd]);
-                setNewProduct({
-                    name: '',
-                    price: '',
-                    originalPrice: '',
-                    image: '',
-                    category: 'traditional',
-                    gender: 'men',
-                    description: '',
-                    details: ''
-                });
-                setImagePreview('');
-                setShowAddProduct(false);
-            };
-
-            const handleEditProduct = (product) => {
-                setNewProduct({
-                    name: product.name,
-                    price: product.price.toString(),
-                    originalPrice: product.originalPrice.toString(),
-                    image: product.image,
-                    category: product.category,
-                    gender: product.gender,
-                    description: product.description,
-                    details: product.details || ''
-                });
-                setImagePreview(product.image);
-                setEditingProduct(product.id);
-                setShowAddProduct(true);
-            };
-
-            const handleUpdateProduct = () => {
-                const updatedProducts = products.map(product =>
-                    product.id === editingProduct ? {
-                        ...product,
-                        ...newProduct,
-                        price: parseInt(newProduct.price),
-                        originalPrice: newProduct.originalPrice ? parseInt(newProduct.originalPrice) : parseInt(newProduct.price)
-                    } : product
-                );
-                setProducts(updatedProducts);
-                setShowAddProduct(false);
-                setEditingProduct(null);
-                setNewProduct({
-                    name: '',
-                    price: '',
-                    originalPrice: '',
-                    image: '',
-                    category: 'traditional',
-                    gender: 'men',
-                    description: '',
-                    details: ''
-                });
-                setImagePreview('');
-            };
-
-            const handleDeleteProduct = (productId) => {
-                if (window.confirm('Are you sure you want to delete this product?')) {
-                    setProducts(products.filter(product => product.id !== productId));
-                }
-            };
-
-            // Checkout functions
-            const handleCheckout = () => {
-                if (!checkoutInfo.name || !checkoutInfo.phone || !checkoutInfo.address) {
-                    alert('Please fill all required fields');
-                    return;
-                }
-
-                let message = `*New Order from BazarBd*\n\n`;
-                message += `*Customer Details:*\n`;
-                message += `Name: ${checkoutInfo.name}\n`;
-                message += `Phone: ${checkoutInfo.phone}\n`;
-                message += `Address: ${checkoutInfo.address}\n`;
-                message += `City: ${checkoutInfo.city}\n`;
-                message += `Delivery: ${checkoutInfo.delivery === 'inside' ? 'Inside Dhaka (100 BDT)' : 'Outside Dhaka (150 BDT)'}\n\n`;
-                
-                message += `*Order Details:*\n`;
-                cartItems.forEach((item, index) => {
-                    message += `${index + 1}. ${item.name} - ${item.quantity} x ${item.price} BDT = ${item.price * item.quantity} BDT\n`;
-                });
-                
-                message += `\n*Order Summary:*\n`;
-                message += `Subtotal: ${getCartTotal()} BDT\n`;
-                message += `Delivery Charge: ${getDeliveryCharge()} BDT\n`;
-                message += `*Total: ${getGrandTotal()} BDT*\n\n`;
-                message += `Thank you for your order!`;
-
-                const whatsappUrl = `https://wa.me/8801317832848?text=${encodeURIComponent(message)}`;
-                window.open(whatsappUrl, '_blank');
-                
-                setOrderSuccess(true);
-                setTimeout(() => {
-                    setOrderSuccess(false);
-                    setCartItems([]);
-                    setCurrentView('home');
-                    setCheckoutInfo({
-                        name: '',
-                        phone: '',
-                        address: '',
-                        city: '',
-                        delivery: 'inside'
-                    });
-                }, 3000);
-            };
-
-            // Get gender badge class
-            const getGenderBadgeClass = (gender) => {
-                switch(gender) {
-                    case 'men': return 'men-badge';
-                    case 'women': return 'women-badge';
-                    case 'kids': return 'kids-badge';
-                    default: return 'unisex-badge';
-                }
-            };
-
-            // Render functions
-            const renderHome = () => (
-                <>
-                    <section className="hero">
-                        <div className="container">
-                            <h1>Fashion & Essentials for Everyone</h1>
-                            <p>Traditional and modern clothing for men, women, and kids, all in one place</p>
-                            <div className="hero-buttons">
-                                <a href="#" className="btn-primary" onClick={(e) => { e.preventDefault(); setCurrentView('home'); }}>
-                                    Shop Now
-                                </a>
-                                <a href="#" className="btn-vendor" onClick={(e) => { e.preventDefault(); document.getElementById('vendor-section').scrollIntoView({behavior: 'smooth'}); }}>
-                                    Become a Vendor
-                                </a>
-                                <a href="#" className="btn-reseller" onClick={(e) => { e.preventDefault(); document.getElementById('reseller-section').scrollIntoView({behavior: 'smooth'}); }}>
-                                    Become a Reseller
-                                </a>
-                                <a href="#" className="btn-secondary" onClick={(e) => { e.preventDefault(); setSelectedCategory('baby'); }}>
-                                    Baby Products
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className="filters">
-                        <div className="container filters-container">
-                            <div className="gender-filters">
-                                <button 
-                                    className={`gender-btn ${selectedGender === 'all' ? 'active' : ''}`}
-                                    onClick={() => setSelectedGender('all')}
-                                >
-                                    All
-                                </button>
-                                <button 
-                                    className={`gender-btn ${selectedGender === 'men' ? 'active' : ''}`}
-                                    onClick={() => setSelectedGender('men')}
-                                >
-                                    Men
-                                </button>
-                                <button 
-                                    className={`gender-btn ${selectedGender === 'women' ? 'active' : ''}`}
-                                    onClick={() => setSelectedGender('women')}
-                                >
-                                    Women
-                                </button>
-                                <button 
-                                    className={`gender-btn ${selectedGender === 'kids' ? 'active' : ''}`}
-                                    onClick={() => setSelectedGender('kids')}
-                                >
-                                    Kids
-                                </button>
-                            </div>
-                            <select 
-                                className="category-select"
-                                value={selectedCategory}
-                                onChange={(e) => setSelectedCategory(e.target.value)}
-                            >
-                                {categories.map(category => (
-                                    <option key={category.id} value={category.id}>{category.name}</option>
-                                ))}
-                            </select>
-                        </div>
-                    </section>
-
-                    <section className="products-section">
-                        <div className="container">
-                            <div className="products-grid">
-                                {filteredProducts.map(product => (
-                                    <div key={product.id} className="product-card" onClick={() => {
-                                        setSelectedProduct(product);
-                                        setCurrentView('product-detail');
-                                    }}>
-                                        <div className="product-image-container">
-                                            <img src={product.image} alt={product.name} className="product-image" />
-                                            {product.originalPrice > product.price && (
-                                                <div className="product-badge">SALE</div>
-                                            )}
-                                            <div className={`gender-badge ${getGenderBadgeClass(product.gender)}`}>
-                                                {product.gender === 'kids' ? 'Kids' : product.gender === 'men' ? 'Men' : 'Women'}
-                                            </div>
-                                            {isAdmin && (
-                                                <div style={{ position: 'absolute', bottom: '10px', right: '10px', display: 'flex', gap: '5px' }}>
-                                                    <button onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        handleEditProduct(product);
-                                                    }} style={{ background: '#3b82f6', color: 'white', border: 'none', padding: '5px 10px', borderRadius: '5px', cursor: 'pointer' }}>
-                                                        <i className="fas fa-edit"></i>
-                                                    </button>
-                                                    <button onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        handleDeleteProduct(product.id);
-                                                    }} style={{ background: '#ef4444', color: 'white', border: 'none', padding: '5px 10px', borderRadius: '5px', cursor: 'pointer' }}>
-                                                        <i className="fas fa-trash"></i>
-                                                    </button>
-                                                </div>
-                                            )}
-                                        </div>
-                                        <div className="product-info">
-                                            <h3 className="product-title">{product.name}</h3>
-                                            <p className="product-description">{product.description}</p>
-                                            <div className="product-price">
-                                                <span className="current-price">৳{product.price}</span>
-                                                {product.originalPrice > product.price && (
-                                                    <span className="original-price">৳{product.originalPrice}</span>
-                                                )}
-                                            </div>
-                                            <div className="product-actions">
-                                                <button className="add-to-cart-btn" onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    addToCart(product);
-                                                }}>
-                                                    Add to Cart
-                                                </button>
-                                                <button 
-                                                    className={`wishlist-btn ${wishlist.includes(product.id) ? 'active' : ''}`}
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        toggleWishlist(product.id);
-                                                    }}
-                                                >
-                                                    <i className="fas fa-heart"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                            {filteredProducts.length === 0 && (
-                                <div style={{ textAlign: 'center', padding: '50px', color: '#64748b' }}>
-                                    <i className="fas fa-search" style={{ fontSize: '48px', marginBottom: '20px', color: '#cbd5e1' }}></i>
-                                    <h3>No products found</h3>
-                                    <p>Try changing your filters or search terms</p>
-                                </div>
-                            )}
-                        </div>
-                    </section>
-
-                    <section className="vendor-reseller-section" id="vendor-section">
-                        <div className="container">
-                            <h2 className="section-title">Join Our Business Network</h2>
-                            <p className="section-subtitle">Grow your business with BazarBd - become a vendor or reseller and reach thousands of customers</p>
-                            
-                            <div className="vendor-reseller-grid">
-                                <div className="vendor-card">
-                                    <div className="card-icon vendor-icon">
-                                        <i className="fas fa-store"></i>
-                                    </div>
-                                    <h3 className="card-title">Become a Vendor</h3>
-                                    <p className="card-description">
-                                        Sell your products on BazarBd platform. Reach thousands of customers across Bangladesh with our established marketplace.
-                                    </p>
-                                    <ul className="benefits-list">
-                                        <li><i className="fas fa-check-circle"></i> Zero upfront registration fees</li>
-                                        <li><i className="fas fa-check-circle"></i> Dedicated seller dashboard</li>
-                                        <li><i className="fas fa-check-circle"></i> Marketing and promotion support</li>
-                                        <li><i className="fas fa-check-circle"></i> Secure payment system</li>
-                                        <li><i className="fas fa-check-circle"></i> Logistics and delivery support</li>
-                                        <li><i className="fas fa-check-circle"></i> 24/7 customer support</li>
-                                    </ul>
-                                    <button 
-                                        className="contact-btn vendor-btn"
-                                        onClick={() => window.open('https://wa.me/8801317832848?text=Hello!%20I%20want%20to%20become%20a%20VENDOR%20on%20BazarBd.%20Please%20send%20me%20more%20information.', '_blank')}
-                                    >
-                                        <i className="fab fa-whatsapp"></i> Contact for Vendor Registration
-                                    </button>
-                                </div>
-                                
-                                <div className="reseller-card" id="reseller-section">
-                                    <div className="card-icon reseller-icon">
-                                        <i className="fas fa-users"></i>
-                                    </div>
-                                    <h3 className="card-title">Become a Reseller</h3>
-                                    <p className="card-description">
-                                        Start your own business with BazarBd products. Get wholesale prices and special discounts for resellers.
-                                    </p>
-                                    <ul className="benefits-list">
-                                        <li><i className="fas fa-check-circle"></i> Wholesale pricing</li>
-                                        <li><i className="fas fa-check-circle"></i> Minimum order quantity flexibility</li>
-                                        <li><i className="fas fa-check-circle"></i> Product catalog access</li>
-                                        <li><i className="fas fa-check-circle"></i> Marketing materials provided</li>
-                                        <li><i className="fas fa-check-circle"></i> Training and support</li>
-                                        <li><i className="fas fa-check-circle"></i> Exclusive discounts</li>
-                                    </ul>
-                                    <button 
-                                        className="contact-btn reseller-btn"
-                                        onClick={() => window.open('https://wa.me/8801317832848?text=Hello!%20I%20want%20to%20become%20a%20RESELLER%20of%20BazarBd%20products.%20Please%20send%20me%20more%20information.', '_blank')}
-                                    >
-                                        <i className="fab fa-whatsapp"></i> Contact for Reseller Program
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className="features">
-                        <div className="container">
-                            <div className="features-grid">
-                                <div className="feature-card">
-                                    <div className="feature-icon">
-                                        <i className="fas fa-check-circle"></i>
-                                    </div>
-                                    <h3 className="feature-title">Quality Guaranteed</h3>
-                                    <p className="feature-description">Authentic products with quality assurance</p>
-                                </div>
-                                <div className="feature-card">
-                                    <div className="feature-icon">
-                                        <i className="fas fa-tags"></i>
-                                    </div>
-                                    <h3 className="feature-title">Best Prices</h3>
-                                    <p className="feature-description">Competitive pricing with regular discounts</p>
-                                </div>
-                                <div className="feature-card">
-                                    <div className="feature-icon">
-                                        <i className="fas fa-shipping-fast"></i>
-                                    </div>
-                                    <h3 className="feature-title">Fast Delivery</h3>
-                                    <p className="feature-description">Quick delivery across Bangladesh</p>
-                                </div>
-                                <div className="feature-card">
-                                    <div className="feature-icon">
-                                        <i className="fas fa-headset"></i>
-                                    </div>
-                                    <h3 className="feature-title">24/7 Support</h3>
-                                    <p className="feature-description">Round the clock customer support</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </>
-            );
-
-            const renderProductDetail = () => (
-                <section className="product-detail">
-                    <div className="container">
-                        <button onClick={() => setCurrentView('home')} style={{ background: 'none', border: 'none', color: '#64748b', marginBottom: '20px', cursor: 'pointer' }}>
-                            <i className="fas fa-arrow-left"></i> Back to Products
-                        </button>
-                        {selectedProduct && (
-                            <div className="product-detail-content">
-                                <img src={selectedProduct.image} alt={selectedProduct.name} className="product-detail-image" />
-                                <div className="product-detail-info">
-                                    <h1>{selectedProduct.name}</h1>
-                                    <div className="product-category">
-                                        {selectedProduct.category} • {selectedProduct.gender}
-                                    </div>
-                                    <div className="product-detail-price">৳{selectedProduct.price}</div>
-                                    <p className="product-description-full">{selectedProduct.description}</p>
-                                    <div className="product-attributes">
-                                        <div className="attribute">
-                                            <div className="attribute-title">Product Details</div>
-                                            <div className="attribute-value" style={{ whiteSpace: 'pre-line' }}>
-                                                {selectedProduct.details}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button 
-                                        className="add-to-cart-btn" 
-                                        style={{ padding: '15px 30px', fontSize: '16px' }}
-                                        onClick={() => {
-                                            addToCart(selectedProduct);
-                                            setCurrentView('cart');
-                                        }}
-                                    >
-                                        Add to Cart - ৳{selectedProduct.price}
-                                    </button>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                </section>
-            );
-
-            const renderCart = () => (
-                <section className="cart-page">
-                    <div className="container">
-                        <button onClick={() => setCurrentView('home')} style={{ background: 'none', border: 'none', color: '#64748b', marginBottom: '20px', cursor: 'pointer' }}>
-                            <i className="fas fa-arrow-left"></i> Continue Shopping
-                        </button>
-                        
-                        <h2 style={{ marginBottom: '30px', color: '#1e293b' }}>Your Cart</h2>
-                        
-                        {cartItems.length === 0 ? (
-                            <div className="empty-cart">
-                                <i className="fas fa-shopping-cart"></i>
-                                <h3>Your cart is empty</h3>
-                                <p>Add some products to your cart</p>
-                                <button 
-                                    className="btn-success" 
-                                    style={{ marginTop: '20px' }}
-                                    onClick={() => setCurrentView('home')}
-                                >
-                                    Browse Products
-                                </button>
-                            </div>
-                        ) : (
-                            <>
-                                <div className="cart-items">
-                                    {cartItems.map(item => (
-                                        <div key={item.id} className="cart-item">
-                                            <img src={item.image} alt={item.name} className="cart-item-image" />
-                                            <div className="cart-item-details">
-                                                <h3 className="cart-item-title">{item.name}</h3>
-                                                <div className="cart-item-price">৳{item.price}</div>
-                                                <div className="cart-item-actions">
-                                                    <div className="quantity-control">
-                                                        <button className="quantity-btn" onClick={() => updateQuantity(item.id, item.quantity - 1)}>
-                                                            <i className="fas fa-minus"></i>
-                                                        </button>
-                                                        <span className="quantity">{item.quantity}</span>
-                                                        <button className="quantity-btn" onClick={() => updateQuantity(item.id, item.quantity + 1)}>
-                                                            <i className="fas fa-plus"></i>
-                                                        </button>
-                                                    </div>
-                                                    <button className="remove-btn" onClick={() => removeFromCart(item.id)}>
-                                                        Remove
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                                
-                                <div className="cart-summary">
-                                    <h3 style={{ marginBottom: '20px', color: '#1e293b' }}>Order Summary</h3>
-                                    <div className="summary-row">
-                                        <span>Subtotal</span>
-                                        <span>৳{getCartTotal()}</span>
-                                    </div>
-                                    <div className="summary-row">
-                                        <span>Delivery Charge</span>
-                                        <span>৳{getDeliveryCharge()}</span>
-                                    </div>
-                                    <div className="summary-row total">
-                                        <span>Total</span>
-                                        <span>৳{getGrandTotal()}</span>
-                                    </div>
-                                    <button 
-                                        className="btn-success" 
-                                        style={{ width: '100%', marginTop: '20px' }}
-                                        onClick={() => setCurrentView('checkout')}
-                                    >
-                                        Proceed to Checkout
-                                    </button>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                </section>
-            );
-
-            const renderCheckout = () => (
-                <section className="checkout-page">
-                    <div className="container">
-                        <button onClick={() => setCurrentView('cart')} style={{ background: 'none', border: 'none', color: '#64748b', marginBottom: '20px', cursor: 'pointer' }}>
-                            <i className="fas fa-arrow-left"></i> Back to Cart
-                        </button>
-                        
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
-                            <div className="checkout-form">
-                                <h3 style={{ marginBottom: '20px', color: '#1e293b' }}>Shipping Information</h3>
-                                <div className="form-group">
-                                    <label>Full Name *</label>
-                                    <input 
-                                        type="text" 
-                                        className="form-control" 
-                                        value={checkoutInfo.name}
-                                        onChange={(e) => setCheckoutInfo({...checkoutInfo, name: e.target.value})}
-                                        placeholder="Enter your full name"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label>Phone Number *</label>
-                                    <input 
-                                        type="tel" 
-                                        className="form-control" 
-                                        value={checkoutInfo.phone}
-                                        onChange={(e) => setCheckoutInfo({...checkoutInfo, phone: e.target.value})}
-                                        placeholder="Enter your phone number"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label>Full Address *</label>
-                                    <textarea 
-                                        className="form-control" 
-                                        rows="3"
-                                        value={checkoutInfo.address}
-                                        onChange={(e) => setCheckoutInfo({...checkoutInfo, address: e.target.value})}
-                                        placeholder="Enter your complete address"
-                                    ></textarea>
-                                </div>
-                                <div className="form-group">
-                                    <label>City</label>
-                                    <input 
-                                        type="text" 
-                                        className="form-control" 
-                                        value={checkoutInfo.city}
-                                        onChange={(e) => setCheckoutInfo({...checkoutInfo, city: e.target.value})}
-                                        placeholder="Enter your city"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label>Delivery Location *</label>
-                                    <div style={{ display: 'flex', gap: '20px', marginTop: '10px' }}>
-                                        <label>
-                                            <input 
-                                                type="radio" 
-                                                name="delivery" 
-                                                value="inside"
-                                                checked={checkoutInfo.delivery === 'inside'}
-                                                onChange={(e) => setCheckoutInfo({...checkoutInfo, delivery: e.target.value})}
-                                            /> Inside Dhaka (৳100)
-                                        </label>
-                                        <label>
-                                            <input 
-                                                type="radio" 
-                                                name="delivery" 
-                                                value="outside"
-                                                checked={checkoutInfo.delivery === 'outside'}
-                                                onChange={(e) => setCheckoutInfo({...checkoutInfo, delivery: e.target.value})}
-                                            /> Outside Dhaka (৳150)
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div className="checkout-summary">
-                                <h3 style={{ marginBottom: '20px', color: '#1e293b' }}>Order Summary</h3>
-                                {cartItems.map(item => (
-                                    <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px', paddingBottom: '10px', borderBottom: '1px solid #eee' }}>
-                                        <div>
-                                            <div style={{ fontWeight: '500' }}>{item.name}</div>
-                                            <div style={{ fontSize: '14px', color: '#64748b' }}>Qty: {item.quantity}</div>
-                                        </div>
-                                        <div>৳{item.price * item.quantity}</div>
-                                    </div>
-                                ))}
-                                <div style={{ marginTop: '20px' }}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
-                                        <span>Subtotal</span>
-                                        <span>৳{getCartTotal()}</span>
-                                    </div>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
-                                        <span>Delivery</span>
-                                        <span>৳{getDeliveryCharge()}</span>
-                                    </div>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px', paddingTop: '10px', borderTop: '2px solid #eee', fontWeight: '700', fontSize: '18px' }}>
-                                        <span>Total</span>
-                                        <span>৳{getGrandTotal()}</span>
-                                    </div>
-                                </div>
-                                <button className="whatsapp-btn" onClick={handleCheckout}>
-                                    <i className="fab fa-whatsapp"></i> Submit Order via WhatsApp
-                                </button>
-                                <p style={{ marginTop: '15px', fontSize: '14px', color: '#64748b', textAlign: 'center' }}>
-                                    Your order will be sent to our WhatsApp: +8801317832848
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            );
-
-            return (
-                <>
-                    <header>
-                        <div className="container header-container">
-                            <div className="logo">
-                                <i className="fas fa-store"></i>
-                                BazarBd
-                                <span 
-                                    className="admin-dot"
-                                    onClick={() => setShowAdminLogin(true)}
-                                    title="Admin Panel"
-                                >
-                                    .
-                                </span>
-                            </div>
-                            
-                            <nav className="desktop-nav">
-                                <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); }}>Home</a>
-                                <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); setSelectedCategory('all'); }}>Shop</a>
-                                <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); setSelectedCategory('baby'); }}>Baby</a>
-                                <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); setSelectedCategory('kids'); }}>Kids</a>
-                                <a href="#" onClick={(e) => { e.preventDefault(); document.getElementById('vendor-section').scrollIntoView({behavior: 'smooth'}); }}>Vendors</a>
-                                <a href="#" onClick={(e) => { e.preventDefault(); document.getElementById('reseller-section').scrollIntoView({behavior: 'smooth'}); }}>Resellers</a>
-                            </nav>
-                            
-                            <div className="header-right">
-                                {isAdmin && (
-                                    <>
-                                        <button 
-                                            onClick={() => setShowAddProduct(true)}
-                                            style={{ background: '#22c55e', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '5px', cursor: 'pointer' }}
-                                        >
-                                            Add Product
-                                        </button>
-                                        <button 
-                                            onClick={() => setIsAdmin(false)}
-                                            style={{ background: '#ef4444', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '5px', cursor: 'pointer' }}
-                                        >
-                                            Logout
-                                        </button>
-                                    </>
-                                )}
-                                
-                                <div className="search-box">
-                                    <i className="fas fa-search"></i>
-                                    <input 
-                                        type="text" 
-                                        placeholder="Search products..." 
-                                        value={searchQuery}
-                                        onChange={(e) => setSearchQuery(e.target.value)}
-                                        onKeyDown={(e) => {
-                                            if (e.key === 'Enter' && searchQuery.trim() === '9192' && !isAdmin) {
-                                                setShowAdminLogin(true);
-                                                setSearchQuery('');
-                                            }
-                                        }}
-                                    />
-                                </div>
-                                
-                                <div className="cart-icon" onClick={() => setCurrentView('cart')}>
-                                    <i className="fas fa-shopping-cart" style={{ fontSize: '24px' }}></i>
-                                    {cartItems.length > 0 && (
-                                        <span className="cart-count">{cartItems.reduce((total, item) => total + item.quantity, 0)}</span>
-                                    )}
-                                </div>
-                                
-                                <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                                    <i className="fas fa-bars"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        {mobileMenuOpen && (
-                            <div className="container">
-                                <nav className="mobile-nav active">
-                                    <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); setMobileMenuOpen(false); }}>Home</a>
-                                    <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); setSelectedCategory('all'); setMobileMenuOpen(false); }}>Shop</a>
-                                    <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); setSelectedCategory('baby'); setMobileMenuOpen(false); }}>Baby</a>
-                                    <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); setSelectedCategory('kids'); setMobileMenuOpen(false); }}>Kids</a>
-                                    <a href="#" onClick={(e) => { e.preventDefault(); document.getElementById('vendor-section').scrollIntoView({behavior: 'smooth'}); setMobileMenuOpen(false); }}>Vendors</a>
-                                    <a href="#" onClick={(e) => { e.preventDefault(); document.getElementById('reseller-section').scrollIntoView({behavior: 'smooth'}); setMobileMenuOpen(false); }}>Resellers</a>
-                                    {/* Admin login removed from mobile menu */}
-                                </nav>
-                            </div>
-                        )}
-                    </header>
-
-                    <main>
-                        {orderSuccess && (
-                            <div className="modal-overlay">
-                                <div className="success-message">
-                                    <div className="success-icon">
-                                        <i className="fas fa-check"></i>
-                                    </div>
-                                    <h3>Order Placed Successfully!</h3>
-                                    <p>Your order has been sent to WhatsApp. You'll receive confirmation shortly.</p>
-                                </div>
-                            </div>
-                        )}
-                        
-                        {showAdminLogin && (
-                            <div className="modal-overlay">
-                                <div className="modal">
-                                    <div className="modal-header">
-                                        <h3 className="modal-title">Admin Login</h3>
-                                        <button className="close-btn" onClick={() => setShowAdminLogin(false)}>
-                                            <i className="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                    <div className="modal-body">
-                                        <div className="form-group">
-                                            <label>Admin Password</label>
-                                            <input 
-                                                type="password" 
-                                                className="form-control" 
-                                                value={adminPassword}
-                                                onChange={(e) => setAdminPassword(e.target.value)}
-                                                placeholder="Enter password"
-                                                onKeyPress={(e) => e.key === 'Enter' && handleAdminLogin()}
-                                            />
-                                        </div>
-                                        <div className="form-actions">
-                                            <button className="btn btn-success" onClick={handleAdminLogin}>
-                                                Login
-                                            </button>
-                                            <button className="btn btn-secondary" onClick={() => setShowAdminLogin(false)}>
-                                                Cancel
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                        
-                        {showAddProduct && (
-                            <div className="modal-overlay">
-                                <div className="modal">
-                                    <div className="modal-header">
-                                        <h3 className="modal-title">{editingProduct ? 'Edit Product' : 'Add New Product'}</h3>
-                                        <button className="close-btn" onClick={() => {
-                                            setShowAddProduct(false);
-                                            setEditingProduct(null);
-                                            setNewProduct({
-                                                name: '',
-                                                price: '',
-                                                originalPrice: '',
-                                                image: '',
-                                                category: 'traditional',
-                                                gender: 'men',
-                                                description: '',
-                                                details: ''
-                                            });
-                                            setImagePreview('');
-                                        }}>
-                                            <i className="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                    <div className="modal-body">
-                                        <div className="form-group">
-                                            <label>Product Name *</label>
-                                            <input 
-                                                type="text" 
-                                                className="form-control" 
-                                                value={newProduct.name}
-                                                onChange={(e) => setNewProduct({...newProduct, name: e.target.value})}
-                                                placeholder="Enter product name"
-                                            />
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Price (BDT) *</label>
-                                            <input 
-                                                type="number" 
-                                                className="form-control" 
-                                                value={newProduct.price}
-                                                onChange={(e) => setNewProduct({...newProduct, price: e.target.value})}
-                                                placeholder="Enter price"
-                                            />
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Original Price (BDT)</label>
-                                            <input 
-                                                type="number" 
-                                                className="form-control" 
-                                                value={newProduct.originalPrice}
-                                                onChange={(e) => setNewProduct({...newProduct, originalPrice: e.target.value})}
-                                                placeholder="Enter original price (if on sale)"
-                                            />
-                                        </div>
-                                        
-                                        <div className="form-group">
-                                            <label>Product Image *</label>
-                                            <div className="image-upload-container" onClick={triggerFileInput}>
-                                                {imagePreview ? (
-                                                    <>
-                                                        <img src={imagePreview} alt="Preview" className="image-preview" />
-                                                        <p className="image-upload-text">Click to change image</p>
-                                                    </>
-                                                ) : (
-                                                    <>
-                                                        <div className="upload-icon">
-                                                            <i className="fas fa-cloud-upload-alt"></i>
-                                                        </div>
-                                                        <p className="image-upload-text">Click to upload image</p>
-                                                        <p className="image-upload-subtext">JPG, PNG up to 5MB</p>
-                                                    </>
-                                                )}
-                                                <input 
-                                                    type="file" 
-                                                    ref={fileInputRef}
-                                                    onChange={handleImageUpload}
-                                                    accept="image/*"
-                                                    style={{ display: 'none' }}
-                                                />
-                                            </div>
-                                            <input 
-                                                type="text" 
-                                                className="form-control" 
-                                                style={{ marginTop: '10px' }}
-                                                value={newProduct.image}
-                                                onChange={(e) => {
-                                                    setNewProduct({...newProduct, image: e.target.value});
-                                                    setImagePreview(e.target.value);
-                                                }}
-                                                placeholder="Or enter image URL"
-                                            />
-                                        </div>
-                                        
-                                        <div className="form-group">
-                                            <label>Category</label>
-                                            <select 
-                                                className="form-control"
-                                                value={newProduct.category}
-                                                onChange={(e) => setNewProduct({...newProduct, category: e.target.value})}
-                                            >
-                                                {categories.filter(cat => cat.id !== 'all').map(category => (
-                                                    <option key={category.id} value={category.id}>{category.name}</option>
-                                                ))}
-                                            </select>
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Gender</label>
-                                            <select 
-                                                className="form-control"
-                                                value={newProduct.gender}
-                                                onChange={(e) => setNewProduct({...newProduct, gender: e.target.value})}
-                                            >
-                                                <option value="men">Men</option>
-                                                <option value="women">Women</option>
-                                                <option value="kids">Kids</option>
-                                            </select>
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Description</label>
-                                            <textarea 
-                                                className="form-control" 
-                                                rows="3"
-                                                value={newProduct.description}
-                                                onChange={(e) => setNewProduct({...newProduct, description: e.target.value})}
-                                                placeholder="Enter product description"
-                                            ></textarea>
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Details</label>
-                                            <textarea 
-                                                className="form-control" 
-                                                rows="3"
-                                                value={newProduct.details}
-                                                onChange={(e) => setNewProduct({...newProduct, details: e.target.value})}
-                                                placeholder="Enter product details (material, size, etc.)"
-                                            ></textarea>
-                                        </div>
-                                        <div className="form-actions">
-                                            <button className="btn btn-success" onClick={editingProduct ? handleUpdateProduct : handleAddProduct}>
-                                                {editingProduct ? 'Update Product' : 'Add Product'}
-                                            </button>
-                                            <button className="btn btn-secondary" onClick={() => {
-                                                setShowAddProduct(false);
-                                                setEditingProduct(null);
-                                                setNewProduct({
-                                                    name: '',
-                                                    price: '',
-                                                    originalPrice: '',
-                                                    image: '',
-                                                    category: 'traditional',
-                                                    gender: 'men',
-                                                    description: '',
-                                                    details: ''
-                                                });
-                                                setImagePreview('');
-                                            }}>
-                                                Cancel
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                        
-                        {currentView === 'home' && renderHome()}
-                        {currentView === 'product-detail' && renderProductDetail()}
-                        {currentView === 'cart' && renderCart()}
-                        {currentView === 'checkout' && renderCheckout()}
-                    </main>
-
-                    <footer>
-                        <div className="container">
-                            <div className="footer-grid">
-                                <div className="footer-column">
-                                    <h3>BazarBd</h3>
-                                    <p style={{ color: '#cbd5e1', marginBottom: '20px' }}>Your trusted marketplace for clothing and daily essentials</p>
-                                    <div className="contact-info">
-                                        <div className="contact-item">
-                                            <i className="fas fa-envelope"></i>
-                                            <span>zobaerhasan431@gmail.com</span>
-                                        </div>
-                                        <div className="contact-item">
-                                            <i className="fas fa-phone"></i>
-                                            <span>+8801317832848</span>
-                                        </div>
-                                        <div className="contact-item">
-                                            <i className="fas fa-map-marker-alt"></i>
-                                            <span>Dhaka, Bangladesh</span>
-                                        </div>
-                                        <div className="contact-item" style={{ marginTop: '20px', paddingTop: '20px', borderTop: '1px solid #334155' }}>
-                                            <i className="fas fa-user"></i>
-                                            <span>Developed By MD ZOBAER HASAN</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div className="footer-column">
-                                    <h3>Business Partners</h3>
-                                    <ul>
-                                        <li><a href="#" onClick={(e) => { e.preventDefault(); document.getElementById('vendor-section').scrollIntoView({behavior: 'smooth'}); }}>Become a Vendor</a></li>
-                                        <li><a href="#" onClick={(e) => { e.preventDefault(); document.getElementById('reseller-section').scrollIntoView({behavior: 'smooth'}); }}>Become a Reseller</a></li>
-                                        <li><a href="#">Partnership Program</a></li>
-                                        <li><a href="#">Bulk Orders</a></li>
-                                        <li><a href="#">Corporate Gifting</a></li>
-                                        <li><a href="#">Business Inquiry</a></li>
-                                    </ul>
-                                </div>
-                                
-                                <div className="footer-column">
-                                    <h3>Categories</h3>
-                                    <ul>
-                                        <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); setSelectedCategory('traditional'); }}>Traditional Wear</a></li>
-                                        <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); setSelectedCategory('western'); }}>Western Wear</a></li>
-                                        <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); setSelectedCategory('baby'); }}>Baby Products</a></li>
-                                        <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); setSelectedCategory('kids'); }}>Kids Wear</a></li>
-                                        <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); setSelectedCategory('footwear'); }}>Footwear</a></li>
-                                        <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('home'); setSelectedCategory('home'); }}>Home Essentials</a></li>
-                                    </ul>
-                                </div>
-                                
-                                <div className="footer-column">
-                                    <h3>Support</h3>
-                                    <ul>
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">FAQ</a></li>
-                                        <li><a href="#">Shipping Policy</a></li>
-                                        <li><a href="#">Return Policy</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Terms & Conditions</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div className="copyright">
-                                <p>&copy; 2026 BazarBd. All rights reserved.</p>
-                                <p>Developed By MD ZOBAER HASAN</p>
-                            </div>
-                        </div>
-                    </footer>
-                </>
-            );
+        window.onload = () => {
+            lucide.createIcons();
+            setupEventListeners();
+            showMainPage('auth-section');
+            loader.style.display = 'none';
+            onAuthStateChanged(auth, handleAuthStateChange);
+            openWelcomeModal();
         };
 
-        ReactDOM.render(<App />, document.getElementById('root'));
+        function openWelcomeModal() { document.getElementById('welcome-modal').classList.remove('hidden'); }
+        window.closeWelcomeModal = function() { document.getElementById('welcome-modal').classList.add('hidden'); }
+
+        async function handleAuthStateChange(user) {
+            if (user) {
+                loader.style.display = 'flex';
+                currentUser = user;
+                await fetchUserData();
+                if (userData.isBlocked) {
+                    showAlert("Your account has been blocked.");
+                    await signOut(auth);
+                    loader.style.display = 'none';
+                    return;
+                }
+                await fetchAppConfig();
+                await checkNewNotifications();
+                updateUI();
+                showMainPage('app-container');
+                navigateTo('home-page');
+                loader.style.display = 'none';
+            } else {
+                currentUser = null;
+                userData = null;
+                showMainPage('auth-section');
+            }
+        }
+
+        async function fetchUserData() {
+            if (!currentUser) return;
+            const userRef = doc(db, "users", currentUser.uid);
+            try {
+                const userSnap = await getDoc(userRef);
+                if (userSnap.exists()) {
+                    userData = userSnap.data();
+                } else {
+                    const ownReferralCode = Math.random().toString(36).substring(2, 8).toUpperCase();
+                    const defaultUserData = {
+                        uid: currentUser.uid, name: currentUser.displayName || currentUser.email.split('@')[0], email: currentUser.email,
+                        balance: 50, referralCode: ownReferralCode, referredBy: null,
+                        lastNotificationCheck: new Date(),
+                        createdAt: serverTimestamp(),
+                        dailyAdCount: 0, lastAdWatchDate: new Date().toISOString().split('T')[0], isBlocked: false
+                    };
+                    await setDoc(userRef, defaultUserData);
+                    userData = defaultUserData;
+                }
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+                showAlert("Error loading user data.");
+            }
+        }
+
+        async function fetchAppConfig() {
+            const configRef = doc(db, "config", "main");
+            try {
+                const configSnap = await getDoc(configRef);
+                // Default config values + values from DB
+                appConfig = configSnap.exists() ? configSnap.data() : { 
+                    minWithdrawal: 5000, 
+                    dailyAdLimit: 15, 
+                    coinValueCoins: 1000, 
+                    coinValueInr: 10,
+                    linkWeb1: "https://google.com",
+                    linkWeb2: "https://wikipedia.org",
+                    linkWeb3: "https://yahoo.com"
+                };
+            } catch (error) {
+                console.error("Error fetching app config:", error);
+            }
+        }
+        
+        function updateUI() {
+            if (!userData) return;
+            const balance = userData.balance || 0;
+            coinBalanceEl.textContent = balance;
+            walletCoinBalanceEl.textContent = balance;
+            profileNameEl.textContent = userData.name || 'No Name';
+            profileEmailEl.textContent = userData.email || 'No Email';
+            referralCodeEl.textContent = userData.referralCode || '...';
+            minWithdrawalInfoEl.textContent = `${appConfig.minWithdrawal || 5000} Coins`;
+            coinValueInfoEl.textContent = `${appConfig.coinValueCoins || 1000} Coins = ৳${appConfig.coinValueInr || 10}`;
+            
+            // Payment Methods
+            withdrawMethodSelect.innerHTML = '';
+            const bdMethods = (appConfig.paymentMethods && appConfig.paymentMethods.length > 0) ? appConfig.paymentMethods : ["Bkash", "Nagad", "Rocket"];
+            bdMethods.forEach(method => {
+                const option = document.createElement('option');
+                option.value = method;
+                option.textContent = method;
+                withdrawMethodSelect.appendChild(option);
+            });
+
+            // Update Social Links from Config
+            if(appConfig.linkTelegram) document.getElementById('link-telegram-btn').href = appConfig.linkTelegram;
+            if(appConfig.linkFacebook) document.getElementById('link-facebook-btn').href = appConfig.linkFacebook;
+            if(appConfig.linkAdmin) document.getElementById('link-admin-btn').href = appConfig.linkAdmin;
+
+            updateDynamicPaymentFields();
+            updateAdsLeftCount();
+            
+            const maxTasksEl = document.getElementById('max-tasks');
+            if(maxTasksEl) maxTasksEl.textContent = appConfig.dailyAdLimit || 15;
+        }
+
+        function updateAdsLeftCount() {
+            const today = new Date().toISOString().split('T')[0];
+            if (userData.lastAdWatchDate !== today) {
+                userData.dailyAdCount = 0;
+            }
+            adsLeftCountEl.textContent = userData.dailyAdCount || 0;
+        }
+
+        function updateDynamicPaymentFields() {
+            const selectedMethod = withdrawMethodSelect.value;
+            let placeholder = `Enter your ${selectedMethod} Number`;
+            paymentDetailsContainer.innerHTML = `<input id="payment-detail-input" type="number" placeholder="${placeholder}" class="w-full p-3 rounded-lg input-field">`;
+        }
+
+        function showMainPage(pageId) {
+            document.querySelectorAll('.main-page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function navigateTo(pageId) {
+            document.querySelectorAll('.sub-page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active', 'text-accent');
+                if (link.dataset.page === pageId) link.classList.add('active', 'text-accent');
+            });
+        }
+        window.navigateTo = navigateTo;
+
+        function setupEventListeners() {
+            document.getElementById('show-signup').addEventListener('click', (e) => { e.preventDefault(); document.getElementById('login-view').classList.add('hidden'); document.getElementById('signup-view').classList.remove('hidden'); });
+            document.getElementById('show-login').addEventListener('click', (e) => { e.preventDefault(); document.getElementById('signup-view').classList.add('hidden'); document.getElementById('login-view').classList.remove('hidden'); });
+            document.getElementById('signup-btn').addEventListener('click', handleSignup);
+            document.getElementById('login-btn').addEventListener('click', handleLogin);
+            document.getElementById('logout-btn').addEventListener('click', handleLogout);
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const pageId = link.dataset.page;
+                    if (pageId === 'wallet-page') loadWithdrawalHistory();
+                    navigateTo(pageId);
+                });
+            });
+            document.getElementById('notification-bell').addEventListener('click', () => { navigateTo('notifications-page'); loadNotifications(); });
+            document.getElementById('copy-code-btn').addEventListener('click', copyReferralCode);
+            document.getElementById('share-btn').addEventListener('click', shareReferralCode);
+            document.getElementById('withdraw-btn').addEventListener('click', handleWithdrawal);
+            document.getElementById('home-withdraw-btn').addEventListener('click', () => navigateTo('wallet-page'));
+            document.getElementById('apply-referral-btn').addEventListener('click', handleApplyReferralCode);
+            withdrawMethodSelect.addEventListener('change', updateDynamicPaymentFields);
+        }
+
+        async function handleSignup() {
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            if (!name || !email || !password) return showAlert("Please fill all fields.");
+            loader.style.display = 'flex';
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const userRef = doc(db, "users", userCredential.user.uid);
+                await updateDoc(userRef, { name: name });
+            } catch (error) {
+                showAlert(error.message);
+            } finally {
+                loader.style.display = 'none';
+            }
+        }
+
+        async function handleLogin() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            if (!email || !password) return showAlert("Please enter email and password.");
+            loader.style.display = 'flex';
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+            } catch (error) {
+                showAlert(error.message);
+            } finally {
+                loader.style.display = 'none';
+            }
+        }
+
+        async function handleLogout() { await signOut(auth); }
+        
+        async function checkNewNotifications() {
+            const lastCheck = userData.lastNotificationCheck;
+            if (!lastCheck || typeof lastCheck.seconds === 'undefined') return;
+            const q = query(collection(db, "notifications"), where("createdAt", ">", lastCheck), limit(1));
+            const querySnapshot = await getDocs(q);
+            notificationDot.style.display = querySnapshot.empty ? 'none' : 'block';
+        }
+
+        async function loadNotifications() {
+            const listEl = document.getElementById('notifications-list');
+            listEl.innerHTML = '<p class="text-gray-400">Loading...</p>';
+            notificationDot.style.display = 'none';
+            const q = query(collection(db, "notifications"), orderBy("createdAt", "desc"));
+            try {
+                const querySnapshot = await getDocs(q);
+                if (querySnapshot.empty) {
+                    listEl.innerHTML = '<p class="text-gray-400 text-center">No notifications available.</p>';
+                    return;
+                }
+                listEl.innerHTML = '';
+                querySnapshot.forEach(doc => {
+                    const msg = doc.data();
+                    const date = msg.createdAt ? msg.createdAt.toDate().toLocaleDateString() : 'N/A';
+                    listEl.innerHTML += `<div class="card-bg p-4 rounded-lg"><div class="flex justify-between items-center mb-1"><h3 class="font-bold">${msg.title}</h3><p class="text-xs text-gray-400">${date}</p></div><p class="text-sm text-gray-300">${msg.message}</p></div>`;
+                });
+                await updateDoc(doc(db, "users", currentUser.uid), { lastNotificationCheck: serverTimestamp() });
+            } catch (error) {
+                console.error("Error loading notifications:", error);
+                listEl.innerHTML = '<p class="text-red-400">Error loading notifications.</p>';
+            }
+        }
+
+        async function loadWithdrawalHistory() {
+            const historyList = document.getElementById('withdrawal-history-list');
+            historyList.innerHTML = '<p class="text-gray-400">Loading history...</p>';
+            const q = query(collection(db, "withdrawals"), where("userId", "==", currentUser.uid), orderBy("requestedAt", "desc"));
+            try {
+                const querySnapshot = await getDocs(q);
+                if (querySnapshot.empty) {
+                    historyList.innerHTML = '<p class="text-gray-400 text-center">You haven\'t made any withdrawals yet.</p>';
+                    return;
+                }
+                historyList.innerHTML = '';
+                querySnapshot.forEach(doc => {
+                    const request = doc.data();
+                    const status = request.status;
+                    let statusColor = 'text-yellow-400';
+                    if (status === 'approved') statusColor = 'text-green-400';
+                    else if (status === 'rejected') statusColor = 'text-red-400';
+                    const date = request.requestedAt ? request.requestedAt.toDate().toLocaleDateString() : 'N/A';
+                    historyList.innerHTML += `<div class="card-bg p-3 rounded-lg flex items-center justify-between"><div><p class="font-semibold">${request.amount} Coins - ${request.method}</p><p class="text-xs text-gray-400">${date}</p></div><p class="font-bold ${statusColor} capitalize">${status}</p></div>`;
+                });
+            } catch (error) {
+                console.error("Error fetching withdrawal history: ", error);
+                historyList.innerHTML = '<p class="text-red-400 text-center">Error loading history.</p>';
+            }
+        }
+        
+        async function handleApplyReferralCode() {
+            if (userData.referredBy) return showAlert("You have already used a referral code.");
+            const codeInput = document.getElementById('enter-referral-code');
+            const code = codeInput.value.trim().toUpperCase();
+            if (!code) return showAlert("Please enter a code.");
+            if (code === userData.referralCode) return showAlert("You cannot use your own code.");
+            loader.style.display = 'flex';
+            await applyReferralBonus(code, true);
+            codeInput.value = '';
+            loader.style.display = 'none';
+        }
+
+        async function applyReferralBonus(referrerCode, isManualApply = false) {
+            const usersRef = collection(db, "users");
+            const q = query(usersRef, where("referralCode", "==", referrerCode));
+            try {
+                const querySnapshot = await getDocs(q);
+                if (!querySnapshot.empty) {
+                    const referrerDoc = querySnapshot.docs[0];
+                    const referrerRef = doc(db, "users", referrerDoc.id);
+                    const referrerData = referrerDoc.data();
+                    await updateDoc(referrerRef, { balance: (referrerData.balance || 0) + 100 });
+                    const newUserRef = doc(db, "users", currentUser.uid);
+                    await updateDoc(newUserRef, { balance: (userData.balance || 0) + 100, referredBy: referrerCode });
+                    userData.balance += 100; userData.referredBy = referrerCode;
+                    updateUI();
+                    if(isManualApply) showAlert("Code applied successfully! You have received 100 coins.");
+                } else {
+                    if(isManualApply) showAlert("Invalid referral code.");
+                }
+            } catch(error) {
+                console.error("Error applying referral bonus: ", error);
+                if(isManualApply) showAlert("Error applying code.");
+            }
+        }
+
+        async function updateBalance(amount) {
+            if (!currentUser) return;
+            const newBalance = (userData.balance || 0) + amount;
+            const userRef = doc(db, "users", currentUser.uid);
+            await updateDoc(userRef, { balance: newBalance });
+            userData.balance = newBalance;
+            updateUI();
+        }
+
+        async function handleWithdrawal() {
+            const amount = parseInt(document.getElementById('withdraw-amount').value);
+            const method = document.getElementById('withdraw-method').value;
+            const paymentDetailInput = document.getElementById('payment-detail-input');
+            const paymentDetail = paymentDetailInput ? paymentDetailInput.value.trim() : '';
+            const minWithdrawal = appConfig.minWithdrawal || 5000;
+
+            if (!amount || amount <= 0) return showAlert("Please enter a valid amount.");
+            if (amount < minWithdrawal) return showAlert(`Minimum withdrawal is ${minWithdrawal} coins.`);
+            if (amount > userData.balance) return showAlert("Insufficient balance.");
+            if (!paymentDetail) return showAlert(`Please enter your ${method} number.`);
+
+            loader.style.display = 'flex';
+            try {
+                await updateBalance(-amount);
+                await addDoc(collection(db, "withdrawals"), {
+                    userId: currentUser.uid, userName: userData.name, userEmail: userData.email,
+                    amount: amount, method: method, paymentDetail: paymentDetail, status: "pending", requestedAt: serverTimestamp()
+                });
+                showAlert("Withdrawal request submitted successfully!");
+                document.getElementById('withdraw-amount').value = '';
+                paymentDetailInput.value = '';
+                loadWithdrawalHistory();
+            } catch (error) {
+                showAlert("Error submitting request: " + error.message);
+                await updateBalance(amount); 
+            } finally {
+                loader.style.display = 'none';
+            }
+        }
+
+        function copyReferralCode() {
+            const textToCopy = referralCodeEl.textContent;
+            navigator.clipboard.writeText(textToCopy).then(() => { showAlert("Referral code copied!"); }).catch(err => { showAlert("Failed to copy code."); });
+        }
+        
+        function shareReferralCode() {
+            const text = `Join Taka Income BD and earn money! Use my referral code: ${userData.referralCode}`;
+            if (navigator.share) {
+                navigator.share({ title: 'Join Taka Income BD!', text: text, url: window.location.href }).catch((error) => console.error("Share failed:", error));
+            } else {
+                copyReferralCode();
+                showAlert("Referral code copied!");
+            }
+        }
+
+        // ========== LIBTL.COM ADS FUNCTIONALITY ==========
+        
+        window.showLibtlAd = async function(adType) {
+            const today = new Date().toISOString().split('T')[0];
+            const userRef = doc(db, "users", currentUser.uid);
+
+            if (userData.lastAdWatchDate !== today) {
+                await updateDoc(userRef, { dailyAdCount: 0, lastAdWatchDate: today });
+                userData.dailyAdCount = 0;
+                userData.lastAdWatchDate = today;
+            }
+
+            if (userData.dailyAdCount >= (appConfig.dailyAdLimit || 15)) {
+                return showAlert("আজকের কাজ শেষ! আগামীকাল আবার চেষ্টা করুন।");
+            }
+            
+            // Check if libtl.com script is loaded
+            if (typeof window.show_10544414 !== 'function') {
+                return showAlert("Ad service currently unavailable. Please check your internet connection.");
+            }
+
+            const eventBtn = window.event ? (window.event.target.closest('button') || window.event.target) : null;
+            const originalBtnText = eventBtn ? eventBtn.innerText : "Claim";
+            
+            loader.style.display = 'flex';
+            try {
+                let adPromise;
+                // Call libtl.com ad function
+                if (adType === 'interstitial') {
+                    adPromise = window.show_10544414(); // interstitial ad
+                } else if (adType === 'popup') {
+                    adPromise = window.show_10544414('pop'); // popup ad
+                } else {
+                    return showAlert("Invalid ad type.");
+                }
+                
+                await adPromise;
+                loader.style.display = 'none';
+
+                if(eventBtn) {
+                    eventBtn.disabled = true;
+                    let waitTime = 30;
+                    const adTimer = setInterval(async () => {
+                        eventBtn.innerText = `Wait ${waitTime}s`;
+                        waitTime--;
+                        if (waitTime < 0) {
+                            clearInterval(adTimer);
+                            eventBtn.innerText = originalBtnText;
+                            eventBtn.disabled = false;
+                            await processAdReward();
+                        }
+                    }, 1000);
+                } else {
+                    setTimeout(async () => { 
+                        await processAdReward(); 
+                    }, 30000);
+                }
+
+                async function processAdReward() {
+                    const newCount = (userData.dailyAdCount || 0) + 1;
+                    await updateDoc(userRef, { dailyAdCount: newCount });
+                    userData.dailyAdCount = newCount;
+                    let rewardAmount = 50; 
+                    await updateBalance(rewardAmount);
+                    showAlert(`Congratulations! You have won ${rewardAmount} coins.`);
+                    updateAdsLeftCount();
+                }
+
+            } catch(e) {
+                console.error("Ad error:", e);
+                loader.style.display = 'none';
+                showAlert('Could not show ad. Please try again later.');
+            }
+        }
+
+        // --- UPDATED WEBSITE VISIT LOGIC (Reads URL from appConfig) ---
+        window.startWebTask = async function(taskId) {
+            const today = new Date().toISOString().split('T')[0];
+            const userRef = doc(db, "users", currentUser.uid);
+
+            if (userData.dailyAdCount >= (appConfig.dailyAdLimit || 15)) {
+                return showAlert("আজকের কাজ শেষ! আগামীকাল আবার চেষ্টা করুন।");
+            }
+
+            // GET DYNAMIC URL
+            let url = 'https://google.com'; // fallback
+            if(taskId === 1) url = appConfig.linkWeb1 || url;
+            if(taskId === 2) url = appConfig.linkWeb2 || url;
+            if(taskId === 3) url = appConfig.linkWeb3 || url;
+
+            const btn = document.getElementById(`task-btn-${taskId}`);
+            const originalText = "Visit";
+            
+            window.open(url, '_blank');
+
+            btn.disabled = true;
+            btn.classList.replace('bg-green-600', 'bg-gray-600');
+            
+            let timeLeft = 30;
+            const timer = setInterval(async () => {
+                btn.innerText = `Wait ${timeLeft}s...`;
+                timeLeft--;
+
+                if (timeLeft < 0) {
+                    clearInterval(timer);
+                    btn.innerText = "Adding...";
+                    try {
+                        const newCount = (userData.dailyAdCount || 0) + 1;
+                        await updateDoc(userRef, { 
+                            balance: (userData.balance || 0) + 50,
+                            dailyAdCount: newCount,
+                            lastAdWatchDate: today
+                        });
+                        userData.balance += 50;
+                        userData.dailyAdCount = newCount;
+                        updateUI();
+                        showAlert("Task Complete! 50 Coins added.");
+                        btn.innerText = "Done ✅";
+                    } catch (e) {
+                        console.error(e);
+                        showAlert("Error claiming reward.");
+                        btn.disabled = false;
+                        btn.innerText = originalText;
+                        btn.classList.replace('bg-gray-600', 'bg-green-600');
+                    }
+                }
+            }, 1000);
+        };
+
+        function showAlert(message) {
+            document.getElementById('alert-message').textContent = message;
+            document.getElementById('custom-alert').classList.remove('hidden');
+            document.getElementById('alert-ok-btn').onclick = () => {
+                document.getElementById('custom-alert').classList.add('hidden');
+            };
+        }
+        window.showAlert = showAlert;
     </script>
+
 </body>
 </html>
