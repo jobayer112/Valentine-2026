@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="bn">
-<head>
+<head><script src="https://progenybanquet.com/b5/8c/42/b58c420459bad0fb7b33cd556198ede9.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Valentine 2026 - Love Competition</title>
@@ -90,7 +90,7 @@
             color: white;
         }
 
-        /* Header - Smaller Size */
+        /* Header */
         .header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -316,7 +316,7 @@
             display: none;
         }
 
-        /* User Info Card - Updated for couples */
+        /* User Info Card */
         .user-info-card {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -445,7 +445,7 @@
             background: var(--primary-light);
         }
 
-        /* Tasks Section - UPDATED */
+        /* Tasks Section */
         .task-filters {
             display: flex;
             gap: 6px;
@@ -498,7 +498,7 @@
             font-weight: 600;
         }
 
-        /* Updated Task Button - Big "Click" text */
+        /* Task Button */
         .task-btn {
             padding: 8px 15px;
             background: var(--primary-color);
@@ -555,31 +555,22 @@
             font-family: monospace;
         }
 
-        /* Progress Bar */
-        .progress-container {
-            margin: 15px 0;
+        /* Task Progress Indicator */
+        .task-status-indicator {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            color: white;
+            padding: 12px;
+            border-radius: var(--radius);
+            margin: 10px;
+            text-align: center;
+            display: none;
+            font-size: 11px;
         }
 
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 4px;
-            font-size: 10px;
-            color: var(--text-dark);
-        }
-
-        .progress-bar {
-            height: 6px;
-            background: #e0e0e0;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 3px;
-            transition: width 0.5s ease;
+        .task-status-text {
+            font-weight: 700;
+            margin-top: 5px;
+            font-size: 12px;
         }
 
         /* Invite Section */
@@ -942,40 +933,47 @@
             color: var(--text-dark);
         }
 
-        /* Task Reset Timer */
-        .reset-timer {
-            text-align: center;
-            padding: 10px;
-            background: linear-gradient(135deg, #4CAF50, #2E7D32);
-            color: white;
-            border-radius: var(--radius);
-            margin: 10px;
-            font-size: 11px;
+        /* Admin Task Management */
+        .admin-section {
             display: none;
         }
 
-        .reset-timer-text {
-            font-weight: 700;
-            margin-top: 3px;
-            font-family: monospace;
+        .task-management {
+            background: white;
+            border-radius: var(--radius);
+            padding: 15px;
+            margin: 10px;
+            box-shadow: var(--shadow);
         }
 
-        /* Task Status Indicator */
-        .task-status-indicator {
-            background: linear-gradient(135deg, #2196f3, #1976d2);
+        .admin-panel {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
             color: white;
-            padding: 12px;
+            padding: 10px 15px;
             border-radius: var(--radius);
-            margin: 10px;
-            text-align: center;
-            display: none;
+            margin-bottom: 15px;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .admin-btn {
+            padding: 8px 15px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-weight: 500;
             font-size: 11px;
         }
 
-        .task-status-text {
-            font-weight: 700;
-            margin-top: 5px;
-            font-size: 12px;
+        .admin-btn:hover {
+            background: var(--primary-dark);
         }
 
         /* Responsive */
@@ -996,6 +994,10 @@
             
             .action-buttons {
                 grid-template-columns: 1fr;
+            }
+            
+            .admin-actions {
+                flex-direction: column;
             }
         }
     </style>
@@ -1018,14 +1020,13 @@
         </h2>
         <ul class="rules-list">
             <li class="lang-text" data-en="Contest Period: February 1 - February 14, 2026" data-bn="প্রতিযোগিতার সময়কাল: ১লা ফেব্রুয়ারি - ১৪ই ফেব্রুয়ারি ২০২৬"></li>
-            <li class="lang-text" data-en="Maximum 20 tasks can be completed daily" data-bn="প্রতিদিন সর্বোচ্চ ২০টি টাস্ক সম্পন্ন করা যাবে"></li>
-            <li class="lang-text" data-en="Tasks reset every 2 hours" data-bn="প্রতি ২ ঘণ্টা পর টাস্ক রিসেট হবে"></li>
+            <li class="lang-text" data-en="Complete unlimited tasks from admin panel" data-bn="এডমিন প্যানেল থেকে যতগুলো টাস্ক আছে সবগুলো সম্পন্ন করুন"></li>
             <li class="lang-text" data-en="Stay on website for 10-15 seconds, then return" data-bn="ওয়েবসাইটে ১০-১৫ সেকেন্ড অপেক্ষা করুন, তারপর ফিরে আসুন"></li>
             <li class="lang-text" data-en="Task completes automatically when you return" data-bn="আপনার ফিরে আসার সাথে সাথে টাস্ক স্বয়ংক্রিয়ভাবে সম্পন্ন হবে"></li>
             <li class="lang-text" data-en="Fake clicking will result in account ban" data-bn="ফেক ক্লিক করলে একাউন্ট ব্যান হবে"></li>
-            <li class="lang-text" data-en="Total 20 tasks must be completed to qualify" data-bn="মোট ২০টি টাস্ক সম্পন্ন করতে হবে যোগ্যতা অর্জনের জন্য"></li>
-            <li class="lang-text" data-en="Each person must invite at least 30 friends" data-bn="প্রত্যেককে কমপক্ষে ৩০ জন বন্ধুকে আমন্ত্রণ জানাতে হবে"></li>
-            <li class="lang-text" data-en="For couples: Both names must be mentioned during registration" data-bn="কাপল হলে অবশ্যই উভয়ের নাম রেজিস্ট্রেশনে উল্লেখ করতে হবে"></li>
+            <li class="lang-text" data-en="Each task gives 30-40 points" data-bn="প্রত্যেক টাস্ক থেকে ৩০-৪০ পয়েন্ট পাওয়া যাবে"></li>
+            <li class="lang-text" data-en="Invite friends to earn extra points" data-bn="বন্ধুদের আমন্ত্রণ জানিয়ে অতিরিক্ত পয়েন্ট অর্জন করুন"></li>
+            <li class="lang-text" data-en="For couples: Both names must be mentioned" data-bn="কাপল হলে উভয়ের নাম উল্লেখ করতে হবে"></li>
             <li class="lang-text" data-en="Prize distribution: February 15, 2026" data-bn="পুরস্কার বিতরণ: ১৫ই ফেব্রুয়ারি ২০২৬"></li>
         </ul>
         <div style="margin-top: 15px; display: flex; gap: 8px;">
@@ -1039,7 +1040,7 @@
 <!-- Main Container -->
 <div class="container" id="mainContainer">
     
-    <!-- Header - Smaller Size -->
+    <!-- Header -->
     <div class="header">
         <div class="header-content">
             <div class="logo">
@@ -1074,12 +1075,6 @@
             <i class="fas fa-gifts"></i> 
             <span class="lang-text" data-en="+ 70 Gift Prizes!" data-bn="+ ৭০টি গিফট পুরস্কার!"></span>
         </div>
-    </div>
-
-    <!-- Task Reset Timer -->
-    <div class="reset-timer" id="resetTimer">
-        <div class="lang-text" data-en="⏰ Tasks will reset in:" data-bn="⏰ টাস্ক রিসেট হতে বাকি:"></div>
-        <div class="reset-timer-text" id="resetTimerText">02:00:00</div>
     </div>
 
     <!-- Task Status Indicator -->
@@ -1178,7 +1173,7 @@
     <!-- Dashboard (Visible after login) -->
     <div class="dashboard" id="userDashboard">
         
-        <!-- User Info Card - Updated for couples -->
+        <!-- User Info Card -->
         <div class="user-info-card">
             <div class="user-name" id="dashboardName"></div>
             <div class="user-type" id="dashboardType"></div>
@@ -1205,7 +1200,7 @@
                 <div class="stat-label lang-text" data-en="Points" data-bn="পয়েন্ট"></div>
             </div>
             <div class="stat-card">
-                <div class="stat-value" id="statTasks">0/20</div>
+                <div class="stat-value" id="statTasks">0</div>
                 <div class="stat-label lang-text" data-en="Tasks" data-bn="টাস্ক"></div>
             </div>
             <div class="stat-card">
@@ -1215,19 +1210,6 @@
             <div class="stat-card">
                 <div class="stat-value" id="statRank">-</div>
                 <div class="stat-label lang-text" data-en="Rank" data-bn="র‍্যাংক"></div>
-            </div>
-        </div>
-
-        <!-- Progress Bar -->
-        <div class="section-content">
-            <div class="progress-container">
-                <div class="progress-label">
-                    <span class="lang-text" data-en="Daily Progress" data-bn="দৈনিক অগ্রগতি"></span>
-                    <span><span id="dailyCompleted">0</span>/20</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="dailyProgressFill" style="width: 0%"></div>
-                </div>
             </div>
         </div>
 
@@ -1286,10 +1268,11 @@
                         <span class="lang-text" data-en="How to Win" data-bn="কিভাবে জিতবেন"></span>
                     </div>
                     <ul style="padding-left: 15px; font-size: 11px; line-height: 1.5;">
-                        <li><i class="fas fa-check-circle" style="color: var(--success-color);"></i> <span class="lang-text" data-en="Complete daily tasks (resets every 2 hours)" data-bn="দৈনিক টাস্ক সম্পন্ন করুন (প্রতি ২ ঘণ্টায় রিসেট)"></span></li>
+                        <li><i class="fas fa-check-circle" style="color: var(--success-color);"></i> <span class="lang-text" data-en="Complete unlimited tasks from admin panel" data-bn="এডমিন প্যানেল থেকে যতগুলো টাস্ক আছে সবগুলো সম্পন্ন করুন"></span></li>
                         <li><i class="fas fa-check-circle" style="color: var(--success-color);"></i> <span class="lang-text" data-en="Click task button to visit website" data-bn="টাস্ক বাটনে ক্লিক করে ওয়েবসাইট ভিজিট করুন"></span></li>
                         <li><i class="fas fa-check-circle" style="color: var(--success-color);"></i> <span class="lang-text" data-en="Stay on website for 10-15 seconds, then return" data-bn="ওয়েবসাইটে ১০-১৫ সেকেন্ড অপেক্ষা করুন, তারপর ফিরে আসুন"></span></li>
                         <li><i class="fas fa-check-circle" style="color: var(--success-color);"></i> <span class="lang-text" data-en="Task completes automatically when you return" data-bn="ফিরে আসার সাথে সাথে টাস্ক সম্পন্ন হবে"></span></li>
+                        <li><i class="fas fa-check-circle" style="color: var(--success-color);"></i> <span class="lang-text" data-en="Each task gives 30-40 points" data-bn="প্রত্যেক টাস্ক থেকে ৩০-৪০ পয়েন্ট পাওয়া যাবে"></span></li>
                         <li><i class="fas fa-check-circle" style="color: var(--success-color);"></i> <span class="lang-text" data-en="Invite friends and lovers" data-bn="বন্ধু ও প্রিয়জনদের আমন্ত্রণ জানান"></span></li>
                         <li><i class="fas fa-check-circle" style="color: var(--success-color);"></i> <span class="lang-text" data-en="Win amazing prizes!" data-bn="আকর্ষণীয় পুরস্কার জিতুন!"></span></li>
                     </ul>
@@ -1302,19 +1285,19 @@
             <div class="section-content">
                 <div class="form-title">
                     <i class="fas fa-tasks"></i>
-                    <span class="lang-text" data-en="Daily Tasks" data-bn="দৈনিক টাস্ক"></span>
-                </div>
-                
-                <!-- Task Reset Info -->
-                <div style="background: #e3f2fd; padding: 8px; border-radius: var(--radius-sm); margin-bottom: 12px; font-size: 11px;">
-                    <i class="fas fa-info-circle"></i>
-                    <span class="lang-text" data-en="Tasks reset every 2 hours. Complete all 20 tasks daily!" data-bn="টাস্ক প্রতি ২ ঘণ্টায় রিসেট হবে। প্রতিদিন ২০টি টাস্ক সম্পন্ন করুন!"></span>
+                    <span class="lang-text" data-en="Available Tasks" data-bn="উপলব্ধ টাস্ক"></span>
                 </div>
                 
                 <!-- Task Instructions -->
                 <div style="background: #fff3cd; border: 1px solid #ffecb5; border-radius: var(--radius-sm); padding: 10px; margin-bottom: 12px; font-size: 11px; color: #856404;">
                     <i class="fas fa-lightbulb"></i>
                     <span class="lang-text" data-en="Instructions: Click button → Website will open → Stay 10-15 seconds → Return here → Task completes automatically" data-bn="নির্দেশ: বাটনে ক্লিক করুন → ওয়েবসাইট ওপেন হবে → ১০-১৫ সেকেন্ড অপেক্ষা করুন → এখানে ফিরে আসুন → টাস্ক স্বয়ংক্রিয়ভাবে সম্পন্ন হবে"></span>
+                </div>
+                
+                <!-- Task Stats -->
+                <div style="background: #e3f2fd; padding: 8px; border-radius: var(--radius-sm); margin-bottom: 12px; font-size: 11px;">
+                    <i class="fas fa-chart-line"></i>
+                    <span id="taskStats" class="lang-text" data-en="Tasks: 0 available" data-bn="টাস্ক: ০টি উপলব্ধ"></span>
                 </div>
                 
                 <!-- Task Filters -->
@@ -1350,14 +1333,14 @@
                         <div class="invite-stat-label lang-text" data-en="Total Invites" data-bn="মোট ইনভাইট"></div>
                     </div>
                     <div class="invite-stat">
-                        <div class="invite-stat-value" id="todayInvites">0</div>
-                        <div class="invite-stat-label lang-text" data-en="Today's Invites" data-bn="আজকের ইনভাইট"></div>
+                        <div class="invite-stat-value" id="bonusPoints">0</div>
+                        <div class="invite-stat-label lang-text" data-en="Bonus Points" data-bn="বোনাস পয়েন্ট"></div>
                     </div>
                 </div>
                 
                 <p style="margin-bottom: 10px; color: var(--text-light); font-size: 11px;">
                     <i class="fas fa-info-circle"></i> 
-                    <span class="lang-text" data-en="Invite at least 30 friends/lovers to qualify" data-bn="যোগ্যতা অর্জনের জন্য কমপক্ষে ৩০ জন বন্ধু/প্রিয়জনকে আমন্ত্রণ জানান"></span>
+                    <span class="lang-text" data-en="Invite friends and earn 50 points per referral" data-bn="বন্ধুদের আমন্ত্রণ জানান এবং প্রতি রেফারেলে ৫০ পয়েন্ট পান"></span>
                 </p>
                 
                 <div class="referral-link-box">
@@ -1402,8 +1385,8 @@
                     <button class="filter-btn active" onclick="filterLeaderboard('all')">
                         <span class="lang-text" data-en="All" data-bn="সব"></span>
                     </button>
-                    <button class="filter-btn" onclick="filterLeaderboard('today')">
-                        <span class="lang-text" data-en="Today" data-bn="আজ"></span>
+                    <button class="filter-btn" onclick="filterLeaderboard('daily')">
+                        <span class="lang-text" data-en="Daily" data-bn="দৈনিক"></span>
                     </button>
                     <button class="filter-btn" onclick="filterLeaderboard('weekly')">
                         <span class="lang-text" data-en="Weekly" data-bn="সাপ্তাহিক"></span>
@@ -1532,15 +1515,11 @@
     let currentUser = null;
     let userData = null;
     let activeTaskTimer = null;
-    let taskCountdown = 15; // 15 seconds for website visit
+    let taskCountdown = 15;
     let currentTaskId = null;
-    let dailyTasks = 0;
     let currentLanguage = 'bn';
     let allTasks = [];
     let userTaskStatus = {};
-    let taskWindow = null;
-    let resetTimer = null;
-    let resetCountdown = 7200; // 2 hours in seconds
     let isTaskRunning = false;
     let taskStartTime = null;
     let pageVisibilityCheck = null;
@@ -1589,6 +1568,7 @@
     function updateDashboardLanguage() {
         if (userData) {
             updateReferralMessage();
+            updateTaskStats();
         }
     }
 
@@ -1690,63 +1670,6 @@
         return code;
     }
 
-    // Start Reset Timer
-    function startResetTimer() {
-        clearInterval(resetTimer);
-        
-        resetTimer = setInterval(() => {
-            resetCountdown--;
-            
-            if (resetCountdown <= 0) {
-                resetCountdown = 7200; // Reset to 2 hours
-                if (userData) {
-                    resetDailyTasks();
-                }
-            }
-            
-            updateResetTimerDisplay();
-        }, 1000);
-    }
-
-    // Update Reset Timer Display
-    function updateResetTimerDisplay() {
-        const hours = Math.floor(resetCountdown / 3600);
-        const minutes = Math.floor((resetCountdown % 3600) / 60);
-        const seconds = resetCountdown % 60;
-        
-        document.getElementById('resetTimerText').textContent = 
-            `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        
-        // Show timer only when logged in
-        if (currentUser) {
-            document.getElementById('resetTimer').style.display = 'block';
-        }
-    }
-
-    // Reset Daily Tasks
-    function resetDailyTasks() {
-        if (!currentUser) return;
-        
-        const today = new Date().toDateString();
-        const lastReset = userData.lastResetDate || '';
-        
-        if (lastReset !== today) {
-            db.ref('users/' + currentUser.uid).update({
-                dailyTaskCount: 0,
-                lastResetDate: today,
-                todayInvites: 0
-            }).then(() => {
-                showNotification(
-                    currentLanguage === 'bn' ? 
-                    'টাস্ক রিসেট করা হয়েছে! নতুন টাস্ক করুন।' : 
-                    'Tasks have been reset! Complete new tasks.',
-                    'success'
-                );
-                loadTasks();
-            });
-        }
-    }
-
     // Register User
     function registerUser() {
         const name = document.getElementById('regName').value.trim();
@@ -1786,7 +1709,7 @@
             .then((userCredential) => {
                 const user = userCredential.user;
                 const userReferralCode = generateReferralCode();
-                const today = new Date().toDateString();
+                const today = new Date().toISOString().split('T')[0];
                 
                 const userData = {
                     name: name,
@@ -1794,7 +1717,9 @@
                     type: type,
                     partnerName: type === 'couple' ? partner : '',
                     points: 0,
+                    totalPoints: 0,
                     invites: 0,
+                    totalInvites: 0,
                     tasksCompleted: 0,
                     referralCode: userReferralCode,
                     referralBy: referralCode || '',
@@ -1804,13 +1729,8 @@
                     paymentNumber: '',
                     accountHolder: '',
                     address: '',
-                    dailyTaskCount: 0,
-                    lastTaskDate: '',
-                    totalPoints: 0,
                     language: currentLanguage,
-                    todayInvites: 0,
-                    totalInvites: 0,
-                    lastResetDate: today
+                    bonusPoints: 0
                 };
                 
                 db.ref('users/' + user.uid).set(userData)
@@ -1821,15 +1741,16 @@
                                     if (snapshot.exists()) {
                                         const referrerData = Object.values(snapshot.val())[0];
                                         const referrerId = Object.keys(snapshot.val())[0];
-                                        const newInvites = (referrerData.invites || 0) + 1;
-                                        const newPoints = (referrerData.points || 0) + 50;
+                                        const newInvites = (referrerData.totalInvites || 0) + 1;
+                                        const newPoints = (referrerData.totalPoints || 0) + 50;
+                                        const newBonusPoints = (referrerData.bonusPoints || 0) + 50;
                                         
                                         db.ref('users/' + referrerId).update({
-                                            invites: newInvites,
-                                            totalInvites: (referrerData.totalInvites || 0) + 1,
-                                            todayInvites: (referrerData.todayInvites || 0) + 1,
-                                            points: newPoints,
-                                            totalPoints: (referrerData.totalPoints || 0) + 50
+                                            invites: (referrerData.invites || 0) + 1,
+                                            totalInvites: newInvites,
+                                            totalPoints: newPoints,
+                                            bonusPoints: newBonusPoints,
+                                            points: (referrerData.points || 0) + 50
                                         });
                                         
                                         db.ref('users/' + user.uid).update({
@@ -1954,7 +1875,7 @@
                 // Update stats
                 document.getElementById('statPoints').textContent = userData.points || 0;
                 document.getElementById('homePoints').textContent = userData.points || 0;
-                document.getElementById('statTasks').textContent = (userData.tasksCompleted || 0) + '/20';
+                document.getElementById('statTasks').textContent = userData.tasksCompleted || 0;
                 document.getElementById('homeTasks').textContent = userData.tasksCompleted || 0;
                 document.getElementById('statInvites').textContent = userData.invites || 0;
                 
@@ -1963,20 +1884,14 @@
                 const referralLink = baseUrl + '?ref=' + userData.referralCode;
                 document.getElementById('referralLink').textContent = referralLink;
                 
-                // Update referral message with couple invitation
+                // Update referral message
                 updateReferralMessage();
-                
-                // Update daily progress
-                updateDailyProgress();
                 
                 // Update home stats
                 updateHomeStats();
                 
                 // Load initial section
                 loadTasks();
-                
-                // Start reset timer
-                startResetTimer();
                 
                 // Load payment info if exists
                 if (userData.paymentMethod) {
@@ -2003,7 +1918,25 @@
         document.getElementById('homeTasks').textContent = userData.tasksCompleted || 0;
     }
 
-    // Update Referral Message - Special for couples
+    // Update Task Stats
+    function updateTaskStats() {
+        if (!userData || !allTasks) return;
+        
+        const totalTasks = Object.keys(allTasks).length;
+        const completedTasks = Object.values(userTaskStatus).filter(task => task.completed).length;
+        const availableTasks = totalTasks - completedTasks;
+        
+        const taskStats = document.getElementById('taskStats');
+        if (taskStats) {
+            if (currentLanguage === 'bn') {
+                taskStats.textContent = `টাস্ক: ${availableTasks}টি উপলব্ধ, ${completedTasks}টি সম্পন্ন`;
+            } else {
+                taskStats.textContent = `Tasks: ${availableTasks} available, ${completedTasks} completed`;
+            }
+        }
+    }
+
+    // Update Referral Message
     function updateReferralMessage() {
         const referralLink = document.getElementById('referralLink').textContent;
         const isBangla = currentLanguage === 'bn';
@@ -2115,88 +2048,98 @@ ${userData.name}`;
         if (!userData) return;
         
         document.getElementById('totalInvites').textContent = userData.totalInvites || 0;
-        document.getElementById('todayInvites').textContent = userData.todayInvites || 0;
-    }
-
-    // Update Daily Progress
-    function updateDailyProgress() {
-        const today = new Date().toDateString();
-        const lastReset = userData.lastResetDate || '';
-        
-        if (lastReset !== today) {
-            dailyTasks = 0;
-        } else {
-            dailyTasks = userData.dailyTaskCount || 0;
-        }
-        
-        document.getElementById('dailyCompleted').textContent = dailyTasks;
-        const progress = Math.min((dailyTasks / 20) * 100, 100);
-        document.getElementById('dailyProgressFill').style.width = progress + '%';
+        document.getElementById('bonusPoints').textContent = userData.bonusPoints || 0;
     }
 
     // Load Tasks
     function loadTasks() {
         document.getElementById('tasksLoading').style.display = 'block';
         
-        // Load tasks from Firebase (Admin panel will add tasks here)
+        // Load tasks from Firebase
         db.ref('tasks').orderByChild('year').equalTo(2026).once('value')
             .then(snapshot => {
                 const tasks = snapshot.val();
                 allTasks = tasks || {};
                 
-                // If no tasks exist in admin panel, create default tasks
+                // If no tasks exist, create sample tasks
                 if (Object.keys(allTasks).length === 0) {
-                    createDefaultTasks();
+                    createSampleTasks();
                 } else {
                     loadUserTaskStatus().then(() => {
                         displayTasks('all');
                         document.getElementById('tasksLoading').style.display = 'none';
+                        updateTaskStats();
                     });
                 }
             })
             .catch(error => {
                 document.getElementById('tasksLoading').style.display = 'none';
+                console.error('Error loading tasks:', error);
             });
     }
 
-    // Create Default Tasks (if admin hasn't added any)
-    function createDefaultTasks() {
-        const defaultTasks = {
+    // Create Sample Tasks (for testing)
+    function createSampleTasks() {
+        const sampleTasks = {
             task1: {
-                title: "Visit Valentine's Day Special Website",
-                url: "https://www.valentinespecial.com",
-                description: "Visit this special Valentine's Day website",
+                title: "Valentine's Day Special Offers",
+                url: "https://example.com/valentine",
+                description: "Visit Valentine special website",
                 points: "30-40",
                 year: 2026,
                 category: "visit",
-                created: new Date().toISOString()
+                created: new Date().toISOString(),
+                active: true
             },
             task2: {
-                title: "Check Love Quotes Website",
-                url: "https://www.lovequotes.com",
+                title: "Love Quotes Collection",
+                url: "https://example.com/love-quotes",
                 description: "Read beautiful love quotes",
                 points: "30-40",
                 year: 2026,
                 category: "visit",
-                created: new Date().toISOString()
+                created: new Date().toISOString(),
+                active: true
             },
             task3: {
-                title: "Visit Gift Ideas Website",
-                url: "https://www.valentinegifts.com",
-                description: "Find perfect gift ideas for Valentine's Day",
+                title: "Gift Ideas for Valentine",
+                url: "https://example.com/gift-ideas",
+                description: "Find perfect gift ideas",
                 points: "30-40",
                 year: 2026,
                 category: "visit",
-                created: new Date().toISOString()
+                created: new Date().toISOString(),
+                active: true
+            },
+            task4: {
+                title: "Romantic Date Ideas",
+                url: "https://example.com/date-ideas",
+                description: "Discover romantic date ideas",
+                points: "30-40",
+                year: 2026,
+                category: "visit",
+                created: new Date().toISOString(),
+                active: true
+            },
+            task5: {
+                title: "Valentine Recipes",
+                url: "https://example.com/valentine-recipes",
+                description: "Cook special Valentine meals",
+                points: "30-40",
+                year: 2026,
+                category: "visit",
+                created: new Date().toISOString(),
+                active: true
             }
         };
         
-        // Save default tasks to Firebase
-        db.ref('tasks').set(defaultTasks).then(() => {
-            allTasks = defaultTasks;
+        // Save sample tasks to Firebase
+        db.ref('tasks').set(sampleTasks).then(() => {
+            allTasks = sampleTasks;
             loadUserTaskStatus().then(() => {
                 displayTasks('all');
                 document.getElementById('tasksLoading').style.display = 'none';
+                updateTaskStats();
             });
         });
     }
@@ -2226,10 +2169,11 @@ ${userData.name}`;
         
         taskIds.forEach((taskId, index) => {
             const task = allTasks[taskId];
-            const taskNumber = index + 1;
+            if (!task.active) return;
             
+            const taskNumber = index + 1;
             const taskCompleted = userTaskStatus[taskId]?.completed || false;
-            const canDoTask = dailyTasks < 20 && !taskCompleted && !isTaskRunning;
+            const canDoTask = !taskCompleted && !isTaskRunning;
             
             let shouldDisplay = true;
             if (filter === 'available') {
@@ -2303,23 +2247,13 @@ ${userData.name}`;
         displayTasks(filterType);
     }
 
-    // Start Task - Direct Open Website
+    // Start Task
     function startTask(taskId, url) {
         if (isTaskRunning) {
             showNotification(
                 currentLanguage === 'bn' ? 
                 'একটি টাস্ক ইতিমধ্যে চলমান আছে!' : 
                 'A task is already in progress!',
-                'error'
-            );
-            return;
-        }
-        
-        if (dailyTasks >= 20) {
-            showNotification(
-                currentLanguage === 'bn' ? 
-                'আজ ২০টি টাস্ক সম্পন্ন করেছেন!' : 
-                'You completed 20 tasks today!',
                 'error'
             );
             return;
@@ -2345,7 +2279,7 @@ ${userData.name}`;
             }
         });
         
-        // Open website directly in new tab
+        // Open website in new tab
         window.open(url, '_blank');
         
         // Start timer for auto-completion after 15 seconds
@@ -2458,6 +2392,7 @@ ${userData.name}`;
         // Re-enable task buttons
         loadUserTaskStatus().then(() => {
             displayTasks('all');
+            updateTaskStats();
         });
     }
 
@@ -2474,14 +2409,12 @@ ${userData.name}`;
             website: allTasks[taskId]?.url || '',
             timeSpent: Math.floor((Date.now() - taskStartTime) / 1000)
         }).then(() => {
-            // Update user's daily count and points
-            const newDailyCount = dailyTasks + 1;
+            // Update user's points and tasks completed
             const newPoints = (userData.points || 0) + pointsEarned;
             const newTotalPoints = (userData.totalPoints || 0) + pointsEarned;
             const newTasksCompleted = (userData.tasksCompleted || 0) + 1;
             
             const updateData = {
-                dailyTaskCount: newDailyCount,
                 points: newPoints,
                 totalPoints: newTotalPoints,
                 tasksCompleted: newTasksCompleted
@@ -2512,7 +2445,7 @@ ${userData.name}`;
             setTimeout(() => {
                 loadUserTaskStatus().then(() => {
                     displayTasks('all');
-                    updateDailyProgress();
+                    updateTaskStats();
                     updateHomeStats();
                 });
             }, 1000);
@@ -2558,7 +2491,7 @@ ${userData.name}`;
                                     </div>` : ''
                                 }
                                 <div style="font-size: 9px; color: var(--text-light); margin-top: 2px;">
-                                    ${user.invites || 0} ${currentLanguage === 'bn' ? 'ইনভাইট' : 'Inv'}
+                                    ${user.tasksCompleted || 0} ${currentLanguage === 'bn' ? 'টাস্ক' : 'Tasks'}
                                 </div>
                             </div>
                             <div class="leaderboard-points">${user.totalPoints || 0}</div>
@@ -2685,8 +2618,6 @@ ${userData.name}`;
         document.getElementById('languageToggle').addEventListener('click', toggleLanguage);
         updateLanguage();
         checkReferralCode();
-        startResetTimer();
-        updateResetTimerDisplay();
         
         auth.onAuthStateChanged(user => {
             if (user) {
